@@ -34,38 +34,60 @@
         </div>
         <div class="main-container">
             <div class="input-container">
-                <div class="input-criteria">
+                <!-- <div class="input-criteria">
                     <button onclick="formType('planText')" class="criteria-button"><i class="fa-solid fa-globe"></i>Text</button>
                     <button onclick="formType('siteUrl')" class="criteria-button"><i class="fa-regular fa-envelope"></i>URL</button>
-                    <!-- <button class="criteria-button"><i class="fa-regular fa-plus"></i>Other</button> -->
-                </div>
+                    <button class="criteria-button"><i class="fa-regular fa-plus"></i>Other</button>
+                </div> -->
                 <div class="input-area">
                     <textarea id="user-input-text" oninput="QRCodeGenerator()" name="planText" autofocus class="input-texarea" rows="4" cols="50" placeholder="Write your text here..."></textarea>
+                </div>
+                <div class="modification-container">
+                    <div class="input-group mb-3 select-image-container">
+                        <h5 class="modification-title"><i class="fa-regular fa-image mod-icon"></i>Add Logo</h5>
+                        <input onchange="readFile(this)" type="file" name="selectImage" id="selectImage"
+                            class="form-control image-input" accept="image/*" src="" alt="">
+                    </div>
+                    <div class="select-dot-color-container additional-style">
+                        <h5 class="modification-title"><i class="fa-solid fa-droplet mod-icon"></i>Choose Dot Color</h5>
+                        <input class="color-input" type="color" name="inputColor" id="input-color-dot">
+                        <i class="fa-solid fa-eye-dropper dropper-icon"></i>
+                        <button id="dot-color-btn" class="color-select-btn" onclick="changeColor()">Select</button>
+                    </div>
+                    <div class="select-eye-color-container additional-style">
+                        <h5 class="modification-title"><i class="fa-solid fa-droplet mod-icon"></i>Choose Eye Color</h5>
+                        <input class="color-input" type="color" name="inputColor" id="input-color-eye">
+                        <i class="fa-solid fa-eye-dropper dropper-icon"></i>
+                        <button class="color-select-btn" onclick="changeColor()">Select</button>
+                    </div>
+                    <div class="select-style-container">
+                        <div class="select-dot-style-container additional-style">
+                            <h5 class="modification-title"><i class="fa-solid fa-qrcode mod-icon"></i>Choose Dot Style</h5>
+                            <button class="style-select-btn" id="input-dot-style-square" onclick="selectDotStyle('square','input-dot-style-square')">Square</button>
+                            <button class="style-select-btn" id="input-dot-style-dot" onclick="selectDotStyle('dots', 'input-dot-style-dot')">Dot</button>
+                            <button class="style-select-btn" id="input-dot-style-rounded" onclick="selectDotStyle('rounded','input-dot-style-rounded')">Rounded</button>
+                            <button class="style-select-btn" id="input-dot-style-extra-rounded" onclick="selectDotStyle('extra-rounded','input-dot-style-extra-rounded')">Extra Rounded</button>
+                            <button class="style-select-btn" id="input-dot-style-classy-rounded" onclick="selectDotStyle('classy-rounded','input-dot-style-classy-rounded')">Classy Rounded</button>
+                        </div>
+                        <div class="select-eye-style-container additional-style">
+                            <h5 class="modification-title"><i class="fa-solid fa-qrcode mod-icon"></i>Choose Eye Style</h5>
+                            <button class="style-select-btn" id="input-eye-style-square" onclick="selectEyeStyle('square','input-eye-style-square')">Square</button>
+                            <button class="style-select-btn" id="input-eye-style-rounded" onclick="selectEyeStyle('extra-rounded','input-eye-style-rounded')">Rounded</button>
+                            <button class="style-select-btn" id="input-eye-style-circle" onclick="selectEyeStyle('rounded','input-eye-style-circle')">Circle</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="middle-icon"><i class="fa-solid fa-arrow-right"></i></div>
             <div class="qr-container">
-                <div class="qr-criteria">
+                <!-- <div class="qr-criteria">
                     <button id="add-logo-btn" class="criteria-button"><i class="fa-regular fa-image"></i>Add logo</button>
                     <button class="criteria-button"><i class="fa-solid fa-border-all"></i>Add frame</button>
-                </div>
+                </div> -->
                 <div class="qr-area" id="qrcode">
                     <!-- <img src="https://i.ibb.co/QJsTLmR/frame.png" alt=""> -->
                 </div>
-                <div class="input-group mb-3 select-image-container">
-                    <input onchange="readFile(this)" type="file" name="selectImage" id="selectImage"
-                        class="form-control image-input" accept="image/*" src="" alt="">
-                </div>
-                <div class="select-color-container">
-                    <input type="color" name="inputColor" id="input-color-dot">
-                    <button onclick="changeColor()">OK</button>
-                    <input type="color" name="inputColor" id="input-color-eye">
-                    <button onclick="changeColor()">OK</button>
-                </div>
-                <div class="select-style-container">
-                    <button id="input-dot-style" onclick="selectDotStyle('dots')">Dot</button>
-                    <button id="input-eye-style" onclick="selectEyeStyle('dots')">Square</button>
-                </div>
+                
                 <div class="download-button-container">
                     <button class="download-button"><i class="fa-solid fa-circle-down"></i>Download PNG</button>
                     <button class="copylink-button"><i class="fa-solid fa-copy"></i>Copy Image Link</button>

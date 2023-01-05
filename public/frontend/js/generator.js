@@ -1,11 +1,11 @@
-function attractiveQRGenerator(element, userInput, image, inputDotColor, inputEyeColor) {
+function attractiveQRGenerator(element, userInput, image, inputDotColor, inputEyeColor, inputDotStyle, inputEyeStyle) {
     const qrcode = new QRCodeStyling({
         width: 250,
         height: 250,
         data: userInput,
         type: 'svg',
         margin: 0,
-        image: image ? image : 'https://upload.wikimedia.org/wikipedia/commons/4/44/Facebook_Logo.png',
+        image: image ? image : null,
         imageOptions: {
             margin: 4,
             crossOrigin: 'anonymous',
