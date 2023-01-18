@@ -204,7 +204,8 @@
 }
 
 .download-button,
-.copylink-button {
+.copylink-button,
+.disabled-button {
     font-size: 18px;
     height: 50px;
     width: 250px;
@@ -212,6 +213,11 @@
     color: white;
     transition: 0.3s;
     border-radius: 5px;
+}
+
+.disabled-button {
+    background-color: darkgray;
+    cursor: no-drop !important;
 }
 
 .download-button {
@@ -233,7 +239,8 @@
 }
 
 .download-button i,
-.copylink-button i {
+.copylink-button i,
+.disabled-button i {
     margin-right: 10px;
 }
 
@@ -278,6 +285,10 @@
     height: 40px;
     border: none;
     border-radius: 5px !important;
+}
+
+.color-input:hover {
+    cursor: pointer;
 }
 
 .select-dot-style-container {

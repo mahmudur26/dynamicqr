@@ -89,8 +89,8 @@
                 </div>
                 
                 <div class="download-button-container">
-                    <button class="download-button"><i class="fa-solid fa-circle-down"></i>Download PNG</button>
-                    <button class="copylink-button"><i class="fa-solid fa-copy"></i>Copy Image Link</button>
+                    <button onclick="downloadQR()" id="qr-download-button" class="download-button"><i class="fa-solid fa-circle-down"></i>Download PNG</button>
+                    <button onclick="createRandomString()" class="copylink-button"><i class="fa-solid fa-copy"></i>Copy Image Link</button>
                 </div>
             </div>
         </div>
@@ -104,5 +104,6 @@
     <script src="{{ asset('frontend/js/resource.js') }}"></script>
     <script src="{{ asset('frontend/js/generator.js') }}"></script>
     <script src="{{ asset('frontend/js/qr-code-style.js') }}"></script>
+    <script src="{{ asset('frontend/js/html2canvas.js') }}"></script>
 </body>
 </html>

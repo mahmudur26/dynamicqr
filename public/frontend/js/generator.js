@@ -1,9 +1,11 @@
+var qrcode;
+
 function attractiveQRGenerator(element, userInput, image, inputDotColor, inputEyeColor, inputDotStyle, inputEyeStyle) {
-    const qrcode = new QRCodeStyling({
+    qrcode = new QRCodeStyling({
         width: 250,
         height: 250,
         data: userInput,
-        type: 'svg',
+        // type: 'svg',
         margin: 0,
         image: image ? image : null,
         imageOptions: {
@@ -28,7 +30,21 @@ function attractiveQRGenerator(element, userInput, image, inputDotColor, inputEy
         }
     });
     qrcode.append(element);
-    // qrcode.download({ name: 'qrcode', extension: 'png' });
+}
+
+function downloadQR() {
+    qrcode.download({ name: 'qrcode', extension: 'png' });
+}
+
+
+function createRandomString() {
+    var randomString = '';
+    var length = 6;
+    var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+    for (var i = 0; i < length; i++) {
+        randomString += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    console.log(randomString);
 }
 
 // function simpleGenerator(element, userInput) {
