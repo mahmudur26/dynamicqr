@@ -15,7 +15,17 @@ use App\Http\Controllers\QrCodeGeneratorController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dynamic-qr-code-generator');
 });
+
+Route::get('/sign-in', function () {
+    return view('sign-in-page');
+});
+
+Route::get('/sign-up', function () {
+    return view('sign-up-page');
+});
+
+Route::resource('qrcodes', 'App\Http\Controllers\QRCodeController');
 
 Route::get('/dynamic-qr-code-generator', [QrCodeGeneratorController::class, 'index']);

@@ -21,7 +21,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    /* border-radius: 5px; */
     position: sticky;
     top: 0;
 }
@@ -93,7 +92,7 @@
 }
 
 .nav-link {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .nav-link a {
@@ -116,12 +115,12 @@
 }
 
 .share-button button {
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
     border-radius: 25px;
     border: none;
-    margin-right: 20px;
-    font-size: 22px;
+    margin-right: 10px;
+    font-size: 16px;
     color: #158043;
     transition: 0.3s;
 }
@@ -131,12 +130,12 @@
 }
 
 .login-button button {
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
     border-radius: 25px;
     border: none;
-    margin-right: 20px;
-    font-size: 20px;
+    margin-right: 10px;
+    font-size: 16px;
     color: #158043;
     transition: 0.3s;
 }
@@ -340,6 +339,109 @@
     padding-bottom: 15px;
 }
 
+.form-label {
+    width: 100%;
+    background-color: #158043;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.sign-in-container-full {
+    margin-top: 30px;
+}
+
+.sign-in-container {
+    box-shadow: 1px 1px 20px rgba(163, 163, 163, 0.781);
+    width: 50vw;
+    /* padding: 30px; */
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.form-label {
+    color: white;
+}
+
 .mod-icon {
     margin-right: 10px;
+}
+
+.input-contianer {
+    flex-direction: column;
+    width: 40vw;
+    margin: 20px 0px;
+}
+
+.email-field,
+.pass-field {
+    border-radius: 20px !important;
+    text-indent: 10px;
+    height: 40px;
+    box-shadow: none;
+}
+
+.email-field:focus,
+.pass-field:focus {
+    border: 1px solid rgba(190, 190, 190, 0.199) !important;
+    box-shadow: 0px 0px 10px rgb(168, 168, 168) !important;
+}
+
+.email-icon {
+    position: absolute;
+    margin-right: 635px;
+    margin-top: 28px;
+    z-index: 2;
+}
+
+.pass-icon {
+    position: absolute;
+    margin-right: 500px;
+    margin-top: 60px;
+}
+
+.sign-in-btn {
+    height: 45px;
+    width: 200px;
+    border-radius: 25px !important;
+    background-color: #158043 !important;
+}
+
+.bottom-links {
+    flex-direction: column;
+    margin-top: 0px;
+}
+
+.bottom-links a {
+    text-decoration: none;
+    color: #2085ff;
+}
+
+hr {
+    width: 100%;
+    background-color: rgb(155, 155, 155) !important;
+}
+
+
+@media only screen and (max-width: 410px) {
+    .nav-link a {
+        margin: 0px 2px;
+        padding: 0px;
+    }
+
+    .sign-in-container {
+        width: 98vw;
+    }
+
+    .input-contianer {
+        width: 80vw;
+    }
+}
+
+@media only screen and (min-width:411px) and (max-width: 870px) {
+    .sign-in-container {
+        width: 70vw;
+    }
+
+    .input-contianer {
+        width: 65vw;
+    }
 }
