@@ -4,6 +4,9 @@
             <div class="form-label p-4 d-flex align-items-center justify-content-center">
                 <h2>Sign up</h2>
             </div>
+            @if(Session::has('message'))
+            <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+            @endif
             @csrf
             <div class="input-contianer d-flex align-items-center justify-content-center">
                 <div class="input-group mb-3">
@@ -16,7 +19,7 @@
                     <input id="input-pass" type="password" name="password" placeholder="Password" class="pass-field form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                 </div>
                 <div class="input-group mb-3">
-                    <input id="input-pass" type="password" name="confirm_password" placeholder="Confirm Password" class="pass-field form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input id="input-pass" type="password" name="password_confirmation" placeholder="Confirm Password" class="pass-field form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                 </div>
                 <button type="submit" class="sign-in-btn btn btn-success">Sign up</button>
                 <hr>
