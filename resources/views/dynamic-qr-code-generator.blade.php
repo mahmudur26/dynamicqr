@@ -19,9 +19,10 @@
                 <img src="https://i.ibb.co/cD8Lc8B/logo.png" alt="">
             </div>
             <div class="nav-link">
-                <a href="">About</a>
-                <a href="">Contact</a>
-                <a href="">Help</a>
+                <a href="">My QR Codes</a>
+                <a href="">Generate New</a>
+                <a href="">FAQ & Help</a>
+                <a href="{{route('logout')}}">Logout</a>
             </div>
             <div class="nav-button">
                 <div class="share-button">

@@ -6,17 +6,16 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 
 
-Route::get('/login' , [LoginController::class, 'login'])->name('login');
+Route::get('/' , [LoginController::class, 'login'])->name('login')->middleware('isAlreadyLogged');
+Route::get('/login' , [LoginController::class, 'login'])->name('login')->middleware('isAlreadyLogged');
+Route::post('/login-user' , [LoginController::class, 'login_user'])->name('login-user');
 
-Route::get('/register' , [RegisterController::class, 'register']);
+Route::get('/register' , [RegisterController::class, 'register'])->name('register')->middleware('isAlreadyLogged');
 Route::post('/register-user' , [RegisterController::class, 'register_user'])->name('register-user');
 
+Route::get('/logout' , [LoginController::class, 'logout'])->name('logout');
 
-
-Route::get('/', function () {
-    return view('dynamic-qr-code-generator');
-});
 
 Route::resource('qrcodes', 'App\Http\Controllers\QRCodeController');
 
-Route::get('/dynamic-qr-code-generator', [QrCodeGeneratorController::class, 'index']);
+Route::get('/dynamic-qr-generator', [QrCodeGeneratorController::class, 'index'])->name('dynamic-qr-generator')->middleware('isLogged');
