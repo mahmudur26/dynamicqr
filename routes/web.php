@@ -2,8 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QrCodeGeneratorController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+
+
+Route::get('/test' , [Controller::class, 'test']);
 
 
 Route::get('/' , [LoginController::class, 'login'])->name('login')->middleware('isAlreadyLogged');
