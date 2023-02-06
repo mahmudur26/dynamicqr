@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QrCodeGeneratorController;
+use App\Http\Controllers\QrCodeShowingController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -25,3 +26,5 @@ Route::get('/logout' , [LoginController::class, 'logout'])->name('logout');
 Route::resource('qrcodes', 'App\Http\Controllers\QRCodeController');
 
 Route::get('/dynamic-qr-generator', [QrCodeGeneratorController::class, 'index'])->name('dynamic-qr-generator')->middleware('isLogged');
+
+Route::get('/qr-code', [QrCodeShowingController::class, 'index'])->name('qr-code')->middleware('isLogged');

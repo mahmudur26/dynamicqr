@@ -13,26 +13,8 @@
     </style>
 </head>
 <body>
+    @include('header')
     <div class="full-container">
-        <div class="navbar">
-            <div class="nav-logo">
-                <img src="https://i.ibb.co/cD8Lc8B/logo.png" alt="">
-            </div>
-            <div class="nav-link">
-                <a href="">My QR Codes</a>
-                <a href="">Generate New</a>
-                <a href="">FAQ & Help</a>
-                <a href="{{route('logout')}}">Logout</a>
-            </div>
-            <div class="nav-button">
-                <div class="share-button">
-                    <button><i class="fa-brands fa-facebook-f"></i></button>
-                </div>
-                <div class="login-button">
-                    <button><i class="fa-solid fa-user"></i></button>
-                </div>
-            </div>
-        </div>
         <div class="main-container">
             <div class="input-container">
                 <!-- <div class="input-criteria">
@@ -41,7 +23,7 @@
                     <button class="criteria-button"><i class="fa-regular fa-plus"></i>Other</button>
                 </div> -->
                 <div class="input-area">
-                    <textarea id="user-input-text" oninput="QRCodeGenerator()" name="planText" autofocus class="input-texarea" rows="4" cols="50" placeholder="Write your text here..."></textarea>
+                    <textarea id="user-input-text" oninput="QRCodeGenerator()" name="planText" autofocus class="input-texarea mb-4" rows="4" cols="50" placeholder="Write your text here..."></textarea>
                 </div>
                 <div class="modification-container">
                     <div class="input-group mb-3 select-image-container">
@@ -90,12 +72,12 @@
                 </div>
                 
                 <div class="download-button-container">
-                    <button onclick="downloadQR()" id="qr-download-button" class="download-button"><i class="fa-solid fa-circle-down"></i>Download PNG</button>
-                    <button onclick="createRandomString()" class="copylink-button"><i class="fa-solid fa-copy"></i>Copy Image Link</button>
+                    <button onclick="" id="qr-download-button" class="download-button"><i class="fa-solid fa-circle-down"></i>Generate</button>
                 </div>
             </div>
         </div>
     </div>
+    @include('footer')
 
     <script src="{{ asset('frontend/js/scripts.js') }}"></script>
     <script src="https://kit.fontawesome.com/bcae4cb038.js" crossorigin="anonymous"></script>    

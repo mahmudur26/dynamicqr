@@ -9,11 +9,20 @@
 }
 
 .full-container {
-    height: 100vh;
+    height: 77.3vh;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* align-items: center; */
 }
 
+.header-container{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
 .navbar {
     height: 10vh;
     background-color: #158043;
@@ -35,20 +44,21 @@
 .main-container {
     display: flex;
     flex-direction: row;
-    /* justify-content: center; */
-    width: 100vw;
+    width: 90vw;
+    margin-top: 20px;
+    height: 60vh;
 }
 
 .input-container {
-    width: 70vw;
-    height: 90vh;
-    /* margin-right: 10px; */
+    width: 60vw;
+    height: 100%;
     margin-left: 30px;
 }
 
 .qr-container {
-    width: 30vw;
-    height: 90vh;
+    width: 25vw;
+    height: 500px;
+    /* margin-left: 150px; */
 }
 
 .middle-icon {
@@ -57,13 +67,14 @@
     border-radius: 30px;
     position: absolute;
     margin-left: 68.7vw;
-    margin-top: 120px;
+    margin-top: 75px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 26px;
     background-color: #158043;
     color: white;
+    display: none;
 }
 
 .input-criteria {
@@ -125,6 +136,10 @@
     transition: 0.3s;
 }
 
+.modification-title{
+    z-index: -1;
+}
+
 .share-button button:hover {
     box-shadow: 2px 2px 20px black;
 }
@@ -150,7 +165,7 @@
 
 .input-texarea {
     width: 100%;
-    height: 250px;
+    height: 150px;
     padding: 30px 30px;
     margin-bottom: 10px;
     box-sizing: border-box;
@@ -261,9 +276,10 @@
 }
 
 .image-input {
-    width: 200px !important;
+    width: 100px !important;
     border: 2px solid grey !important;
     border-radius: 5px !important;
+    z-index: 0;
 }
 
 .image-input:focus {
@@ -369,6 +385,7 @@
     flex-direction: column;
     width: 40vw;
     margin: 20px 0px;
+    height: 100%;
 }
 
 .email-field,
@@ -420,6 +437,19 @@ hr {
     background-color: rgb(155, 155, 155) !important;
 }
 
+.footer-container{
+    background-color: #158043;
+    height: 100px;
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-text{
+    color: white;
+}
 
 @media only screen and (max-width: 410px) {
     .nav-link a {

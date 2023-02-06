@@ -208,11 +208,11 @@ function QRCodeGenerator() {
 
     var element = document.getElementById('qrcode');
     element.innerHTML = '';
+
     // simpleGenerator(element, userInput);
     // changeColor();
     attractiveQRGenerator(element, userInput, image, inputDotColor, inputEyeColor, inputDotStyle, inputEyeStyle);
 }
-
 
 // function copyQR() {
 //     var img = document.querySelector('#qrcode').querySelector('img');

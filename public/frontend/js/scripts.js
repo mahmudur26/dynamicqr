@@ -1,9 +1,9 @@
 const addLogoBtn = document.getElementById('add-logo-btn');
 const selectImageContainer = document.getElementById('select-image-container');
 
-addLogoBtn.onclick = function () {
-    document.getElementById("select-image-container").style.display = "none";
-}
+// addLogoBtn.onclick = function () {
+//     document.getElementById("select-image-container").style.display = "none";
+// }
 
 var emailFeild = document.getElementById("input-email");
 var passFeild = document.getElementById("input-pass");

@@ -29,6 +29,7 @@ function attractiveQRGenerator(element, userInput, image, inputDotColor, inputEy
             // type: 'classy-rounded',
         }
     });
+    //db tasks  to save the informations
     qrcode.append(element);
 }
 
@@ -46,6 +47,13 @@ function createRandomString() {
     }
     console.log(randomString);
 }
+
+
+function generateNew(){
+    QRCodeGenerator();
+    window.location.href = '/qr-code';
+}
+
 
 // function simpleGenerator(element, userInput) {
 //     let qrcode = new QRCode(element, {
