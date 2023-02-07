@@ -28,3 +28,5 @@ Route::resource('qrcodes', 'App\Http\Controllers\QRCodeController');
 Route::get('/dynamic-qr-generator', [QrCodeGeneratorController::class, 'index'])->name('dynamic-qr-generator')->middleware('isLogged');
 
 Route::get('/qr-code', [QrCodeShowingController::class, 'index'])->name('qr-code')->middleware('isLogged');
+
+Route::resource('students','App\Http\Controllers\StudentController');
