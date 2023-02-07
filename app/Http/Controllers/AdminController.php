@@ -10,9 +10,16 @@ class AdminController extends Controller
 {
     public function home()
     {
-        // $data['title'] = 'Home Page';
-        // $data['view_page'] = 'admin/admin-home';
-        $data['users'] = User::where('is_verified' , '=' , NULL)->get();
+        $data['title'] = 'Home Page';
+        // $data['view_page'] = 'admin.admin-home';
+        $data['users'] = User::where('is_active' , '=' , NULL)->get();
         return view("admin.admin-home" , $data);
+    }
+
+    public function user_approve($id)
+    {
+        User::where('id' , '=' , $id)->update(['is_active' => NULL]);
+        session()->flash('message', 'The User has been activated.');
+        return redirect()->back();
     }
 }
