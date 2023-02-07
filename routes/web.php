@@ -13,6 +13,7 @@ Route::get('/test' , [Controller::class, 'test']);
 
 Route::get('/admin-home' , [AdminController::class , 'home']);
 Route::get('/user-approve/{id}' , [AdminController::class , 'user_approve']);
+Route::get('/user-reject/{id}' , [AdminController::class , 'user_reject']);
 
 Route::get('/' , [LoginController::class, 'login'])->name('login')->middleware('isAlreadyLogged');
 Route::get('/login' , [LoginController::class, 'login'])->name('login')->middleware('isAlreadyLogged');

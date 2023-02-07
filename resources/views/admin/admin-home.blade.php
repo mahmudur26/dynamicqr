@@ -20,6 +20,7 @@
         <th scope="col">Email</th>
         <th scope="col">Phone</th>
         <th scope="col">Approve</th>
+        <th scope="col">Reject</th>
         </tr>
     </thead>
     <tbody>
@@ -29,6 +30,7 @@
             <td>dat{{$user->email}}a</td>
             <td>{{$user->phone}}</td>
             <td><a href="{{url('/user-approve/'.$user->id)}}" type="button" class="btn btn-primary btn-sm">Approve</a></td>
+            <td><a href="{{url('/user-reject/'.$user->id)}}" type="button" class="btn btn-danger btn-sm">Reject</a></td>
         </tr>
         @endforeach
     </tbody>

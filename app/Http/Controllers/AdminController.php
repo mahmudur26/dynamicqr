@@ -18,8 +18,15 @@ class AdminController extends Controller
 
     public function user_approve($id)
     {
-        User::where('id' , '=' , $id)->update(['is_active' => NULL]);
+        User::where('id' , '=' , $id)->update(['is_active' => '1']);
         session()->flash('message', 'The User has been activated.');
+        return redirect()->back();
+    }
+
+    public function user_reject($id)
+    {
+        User::where('id' , '=' , $id)->update(['is_active' => '0']);
+        session()->flash('message', 'The User has been rejected.');
         return redirect()->back();
     }
 }
