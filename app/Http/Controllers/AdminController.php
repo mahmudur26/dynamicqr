@@ -8,12 +8,11 @@ use Illuminate\Routing\Controller;
 
 class AdminController extends Controller
 {
-    public function home()
+    public function pending_users()
     {
-        $data['title'] = 'Home Page';
-        // $data['view_page'] = 'admin.admin-home';
+        $data['title'] = 'Pending Users';
         $data['users'] = User::where('is_active' , '=' , NULL)->get();
-        return view("admin.admin-home" , $data);
+        return view("admin.pending-users" , $data);
     }
 
     public function user_approve($id)
@@ -28,5 +27,12 @@ class AdminController extends Controller
         User::where('id' , '=' , $id)->update(['is_active' => '0']);
         session()->flash('message', 'The User has been rejected.');
         return redirect()->back();
+    }
+
+    public function active_users()
+    {
+        $data['title'] = 'Active Users';
+        $data['users'] = User::where('is_active' , '=' , '1')->get();
+        return view("admin.active-users" , $data);
     }
 }

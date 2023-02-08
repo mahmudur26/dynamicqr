@@ -11,9 +11,11 @@ use App\Http\Controllers\RegisterController;
 
 Route::get('/test' , [Controller::class, 'test']);
 
-Route::get('/admin-home' , [AdminController::class , 'home']);
+Route::get('/pending-users' , [AdminController::class , 'pending_users'])->name('pending-users')->middleware('isLogged');
 Route::get('/user-approve/{id}' , [AdminController::class , 'user_approve']);
 Route::get('/user-reject/{id}' , [AdminController::class , 'user_reject']);
+Route::get('/active-users' , [AdminController::class , 'active_users'])->middleware('isLogged');
+
 
 Route::get('/' , [LoginController::class, 'login'])->name('login')->middleware('isAlreadyLogged');
 Route::get('/login' , [LoginController::class, 'login'])->name('login')->middleware('isAlreadyLogged');

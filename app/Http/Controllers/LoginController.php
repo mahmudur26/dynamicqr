@@ -41,7 +41,8 @@ class LoginController extends Controller
                             }
                         else
                             { //IF ADMIN TRUE
-                                echo 'admin';   
+                                $request->session()->put('login_id' , $verification->id);
+                                return redirect('pending-users');
                             }
                     }
                 else //WRONG PASSWORD

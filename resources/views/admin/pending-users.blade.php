@@ -8,7 +8,7 @@
 }
 </style>
 
-<h2>Pending Users</h2>
+<h4>Pending Users</h4>
 @if(Session::has('message'))
 <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
 @endif
