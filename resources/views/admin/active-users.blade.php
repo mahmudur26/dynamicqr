@@ -1,14 +1,8 @@
 @extends('admin.frame')
 @section('content')
-<style>
-.alert{
-    text-align: center;
-    width: 60%;
-    margin: 0 auto;
-}
-</style>
 
-<h2>Pending Users</h2>
+<div class="page_title_text">Active Users</div>
+
 @if(Session::has('message'))
 <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
 @endif
