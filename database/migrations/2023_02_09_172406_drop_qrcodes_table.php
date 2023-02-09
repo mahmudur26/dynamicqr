@@ -13,10 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        Schema::drop('qrcodes');
     }
 
     /**
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students');
+        //
     }
 };
