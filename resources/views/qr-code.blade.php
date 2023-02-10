@@ -5,12 +5,16 @@
 <!-- <p class="card-text">Input : {{ $qr->user_input }}</p> -->
 
 <div>
-    <div class="qr-area" id="new_qrcode">
+    <div class="new-qr-area" id="new_qrcode">
         <!-- <img src="https://i.ibb.co/QJsTLmR/frame.png" alt=""> -->
     </div>
+    <button onclick="downloadQR()" type="button" class="btn btn-primary">Download</button>
 </div>
 
 <script>
+
+    var new_qrcode;
+
     var new_element = document.getElementById('new_qrcode');
     new_element.innerHTML = '';
 
@@ -23,14 +27,14 @@
 
 
     window.onload = function () {
-        attractiveQRGenerator(new_element, new_userInput, new_image, new_inputDotColor, new_inputEyeColor, new_inputDotStyle, new_inputEyeStyle);
+        newAttractiveQRGenerator(new_element, new_userInput, new_image, new_inputDotColor, new_inputEyeColor, new_inputDotStyle, new_inputEyeStyle);
     }
     
-    function attractiveQRGenerator(new_element, new_userInput, new_image, new_inputDotColor, new_inputEyeColor, new_inputDotStyle, new_inputEyeStyle) {
-    qrcode = new QRCodeStyling({
-        width: 150,
-        height: 150,
-        data: userInput,
+    function newAttractiveQRGenerator(new_element, new_userInput, new_image, new_inputDotColor, new_inputEyeColor, new_inputDotStyle, new_inputEyeStyle) {
+        new_qrcode = new QRCodeStyling({
+        width: 550,
+        height: 550,
+        data: new_userInput,
         type: 'svg',
         margin: 0,
         image: image ? image : null,
@@ -39,25 +43,30 @@
             crossOrigin: 'anonymous',
         },
         dotsOptions: {
-            color: inputDotColor,
+            color: new_inputDotColor,
             // type: 'square',
-            type: inputDotStyle,
+            type: new_inputDotStyle,
             // type: 'rounded',
             // type: 'extra-rounded',
             // type: 'classy-rounded',
         },
         cornersSquareOptions: {
-            color: inputEyeColor,
+            color: new_inputEyeColor,
             // type: 'square',
-            type: inputEyeStyle,
+            type: new_inputEyeStyle,
             // type: 'rounded',
             // type: 'extra-rounded',
             // type: 'classy-rounded',
         }
     });
     //db tasks  to save the informations
-    qrcode.append(new_element);
+    new_qrcode.append(new_element);
 }
+
+function downloadQR() {
+    new_qrcode.download({ name: 'qrcode', extension: 'png' });
+}
+
 </script>
 </div>
 @include('footer')

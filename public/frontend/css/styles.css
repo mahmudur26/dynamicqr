@@ -103,6 +103,13 @@
     align-items: center;
 }
 
+.new-qr-area {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .nav-link {
     font-size: 18px;
 }

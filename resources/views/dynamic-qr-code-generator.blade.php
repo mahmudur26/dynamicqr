@@ -12,7 +12,7 @@
                     <button class="criteria-button"><i class="fa-regular fa-plus"></i>Other</button>
                 </div> -->
                 <div class="input-area">
-                    <input id="user-input-text" oninput="QRCodeGenerator()" name="user_input" autofocus class="input-texarea mb-4" rows="4" cols="50" placeholder="Write your text here..."></input>
+                    <input required id="user-input-text" oninput="QRCodeGenerator()" name="user_input" autofocus class="input-texarea mb-4" rows="4" cols="50" placeholder="Write your text here..."></input>
                 </div>
                 <div class="modification-container">
                     <div class="input-group mb-3 select-image-container">

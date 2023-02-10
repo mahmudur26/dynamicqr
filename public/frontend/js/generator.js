@@ -33,9 +33,9 @@ function attractiveQRGenerator(element, userInput, image, inputDotColor, inputEy
     qrcode.append(element);
 }
 
-function downloadQR() {
-    qrcode.download({ name: 'qrcode', extension: 'png' });
-}
+// function downloadQR() {
+//     qrcode.download({ name: 'qrcode', extension: 'png' });
+// }
 
 
 function createRandomString() {
