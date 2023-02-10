@@ -49,7 +49,7 @@ function createRandomString() {
 }
 
 
-function generateNew(){
+function generateNew() {
     QRCodeGenerator();
     window.location.href = '/qr-code';
 }

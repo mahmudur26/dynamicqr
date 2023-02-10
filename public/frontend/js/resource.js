@@ -1,6 +1,6 @@
-window.onload = function () {
-    QRCodeGenerator();
-}
+// window.onload = function () {
+//     QRCodeGenerator();
+// }
 
 var image = '';
 function readFile(element) {

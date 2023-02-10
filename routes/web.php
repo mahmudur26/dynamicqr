@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QrCodeGeneratorController;
 use App\Http\Controllers\QrCodeShowingController;
+use App\Http\Controllers\QrDbController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -33,4 +34,4 @@ Route::get('/dynamic-qr-generator', [QrCodeGeneratorController::class, 'index'])
 
 Route::get('/qr-code', [QrCodeShowingController::class, 'index'])->name('qr-code')->middleware('isLogged');
 
-Route::resource('students','App\Http\Controllers\StudentController');
+Route::post('/store-qr' , [QrDbController::class, 'store_qr'])->name('store-qr');
