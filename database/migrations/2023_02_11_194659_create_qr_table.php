@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('eye_color')->nullable();
             $table->string('dot_style')->nullable();
             $table->string('eye_style')->nullable();
-            // $table->string('random_code')->nullable();
-            // $table->string('dynamic_link')->nullable();
+            $table->string('random_code')->nullable();
+            $table->string('dynamic_link')->nullable();
             // $table->string('qr_type')->nullable();
             $table->timestamps();
         });

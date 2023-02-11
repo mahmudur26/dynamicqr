@@ -10,5 +10,5 @@ class Qr extends Model
     use HasFactory;
     protected $table = 'qr';
     protected $primaryKey = 'id';
-    protected $fillable = ['user_input', 'logo_name', 'dot_color', 'eye_color', 'dot_style', 'eye_style'];
+    protected $fillable = ['user_input', 'logo_name', 'dot_color', 'eye_color', 'dot_style', 'eye_style', 'random_code', 'dynamic_link'];
 }

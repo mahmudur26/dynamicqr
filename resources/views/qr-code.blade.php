@@ -10,7 +10,7 @@
         <div class="dynamic-link-title-container">
             <h5 class="dynamic-link-title"><i style="margin-right: 10px" class="fa-solid fa-globe"></i>Dynamic Link</h5>
         </div>
-        <input id="dynamic-link" type="text" class="form-control" disabled placeholder="<?php echo $qr->user_input; ?>">
+        <input id="dynamic-link" type="text" class="form-control" disabled placeholder="<?php echo $qr->dynamic_link; ?>">
     </div>
     <div class="preview-qr-container">
         <div class="new-qr-area" id="new_qrcode">
@@ -81,6 +81,7 @@
 
     window.onload = function () {
         newAttractiveQRGenerator(new_element, new_userInput, new_image, new_inputDotColor, new_inputEyeColor, new_inputDotStyle, new_inputEyeStyle);
+        setSize();
     }
     
     function newAttractiveQRGenerator(new_element, new_userInput, new_image, new_inputDotColor, new_inputEyeColor, new_inputDotStyle, new_inputEyeStyle) {
