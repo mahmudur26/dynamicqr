@@ -17,6 +17,7 @@ Route::get('/user-approve/{id}' , [AdminController::class , 'user_approve']);
 Route::get('/user-reject/{id}' , [AdminController::class , 'user_reject']);
 Route::get('/active-users' , [AdminController::class , 'active_users'])->middleware('isLogged');
 Route::get('/admin-profile' , [AdminController::class , 'profile'])->name('admin_profile')->middleware('isLogged');
+Route::post('/admin-profile_update' , [AdminController::class , 'update_profile'])->name('admin_update_profile_information')->middleware('isLogged');
 
 
 

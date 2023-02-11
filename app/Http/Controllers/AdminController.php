@@ -42,4 +42,9 @@ class AdminController extends Controller
         $data['title'] = 'Admin Profile';
         return view("admin.profile" , $data);
     }
+
+    public function update_profile(Request $request)
+    {
+        dd($request);
+    }
 }
