@@ -474,13 +474,15 @@ hr {
 }
 
 .range-input {
-    width: 80% !important;
+    width: 65% !important;
 }
 
 .left-container {
     width: 50vw;
-    /* display: flex;
-    flex-direction: row; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 60px;
 }
 
 .preview-qr-container {
@@ -508,6 +510,24 @@ hr {
 .size-label {
     display: block;
     width: 110px;
+}
+
+.dynamic-link-title {
+    width: 170px;
+    margin-bottom: 0px !important;
+}
+
+.form-control:disabled {
+    background-color: white !important;
+    opacity: 1;
+    height: 40px !important;
+}
+
+.dynamic-link-title-container {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media only screen and (max-width: 410px) {

@@ -7,8 +7,10 @@
 <div class="full-container">
     <div class="left-container">
         <!-- <label id="dynamic-link-label" for="dynamic-link">Dynamic Link</label> -->
-        <h5 class="modification-title"><i class="fa-solid fa-qrcode mod-icon"></i>Dynamic Link</h5>
-        <input id="dynamic-link" type="text" class="form-control" disabled placeholder="<?php echo $qr->user_input; ?>" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        <div class="dynamic-link-title-container">
+            <h5 class="dynamic-link-title"><i style="margin-right: 10px" class="fa-solid fa-globe"></i>Dynamic Link</h5>
+        </div>
+        <input id="dynamic-link" type="text" class="form-control" disabled placeholder="<?php echo $qr->user_input; ?>">
     </div>
     <div class="preview-qr-container">
         <div class="new-qr-area" id="new_qrcode">
