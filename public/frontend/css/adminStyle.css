@@ -1,6 +1,9 @@
 body{
     font-family: 'Aleo';
 }
+.pull-right{
+  float: right !important;
+}
 .nav-scroller {
     position: relative;
     z-index: 2;
