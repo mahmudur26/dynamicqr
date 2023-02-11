@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -45,6 +46,49 @@ class AdminController extends Controller
 
     public function update_profile(Request $request)
     {
-        dd($request);
+        $updated_data = [
+            'name' => $request->name,
+            'email' => $request->email,
+        ];
+        User::where('id' , '=' , Session('login_id'))->update($updated_data);
+        session()->flash('message', 'Profile Updated');
+        return redirect()->back();
+    }
+
+    public function update_password(Request $request)
+    {
+        // dd($request->old_password);
+        $user = User::find(Session('login_id'));
+        if(Hash::check($request->old_password , $user->password))
+            {
+                if($request->confirm_password != $request->new_password)
+                    {
+                        session()->flash('message', 'Confirm Password does not match.');
+                        return redirect()->back();
+                    }
+                    else
+                    {
+                        $updated_password = [
+                            'password' => bcrypt($request->input('new_password'))
+                        ];
+                        User::where('id' , '=' , Session('login_id'))->update($updated_password);
+                        session()->flash('message', 'Password has been changed successfully.');
+                        return redirect()->back();
+                    }
+            }
+        else
+            {
+                session()->flash('message', 'Old Password Incorrect.');
+                return redirect()->back();
+            }
+
+
+        // $updated_data = [
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        // ];
+        // User::where('id' , '=' , Session('login_id'))->update($updated_data);
+        // session()->flash('message', 'Profile Updated');
+        // return redirect()->back();
     }
 }
