@@ -9,7 +9,7 @@
 }
 
 .full-container {
-    height: 74.8vh;
+    height: 90%;
     padding: 0;
     margin: 0;
     display: flex;
@@ -461,7 +461,7 @@ hr {
 
 .footer-container {
     background-color: #158043;
-    height: 100px;
+    height: 80px;
     position: sticky;
     bottom: 0;
     display: flex;
