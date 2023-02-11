@@ -37,7 +37,7 @@
                             <h5 class="modification-title"><i class="fa-solid fa-qrcode mod-icon"></i>Choose Dot Style</h5>
                             <input type="radio" class="style-select-btn" id="input-dot-style-square" onclick="selectDotStyle('square','input-dot-style-square')" name="dot_style" value="square"></input>
                             <label class="style-label" for="input-dot-style-square">Square</label>
-                            <input type="radio" class="style-select-btn" id="input-dot-style-dot" onclick="selectDotStyle('dots', 'input-dot-style-dot')" name="dot_style" value="Dot"></input>
+                            <input type="radio" class="style-select-btn" id="input-dot-style-dot" onclick="selectDotStyle('dots', 'input-dot-style-dot')" name="dot_style" value="dots"></input>
                             <label class="style-label" for="input-dot-style-dot">Dots</label>
                             <input type="radio" class="style-select-btn" id="input-dot-style-rounded" onclick="selectDotStyle('rounded','input-dot-style-rounded')" name="dot_style"  value="rounded"></input>
                             <label class="style-label" for="input-dot-style-rounded">Rounded</label>
