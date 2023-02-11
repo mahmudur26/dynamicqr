@@ -17,13 +17,14 @@
             <!-- <img src="https://i.ibb.co/QJsTLmR/frame.png" alt=""> -->
         </div>
         <div class="sizing-container">
-            <input onchange="setSize()" type="range" id="range-picker" class="form-range range-input" min="1" max="5" id="rangePicker">
             <div class="size-label-container">
                 <span class="size-label">Low</span>
                 <span style="text-align: center;" class="size-label">Medium</span>
                 <span style="text-align: end;" class="size-label">High</span>
             </div>
-            <button onclick="downloadQR()" type="button" class="download-button">Download</button>
+            <input onchange="setSize()" type="range" id="range-picker" class="form-range range-input" min="1" max="5" id="rangePicker">
+            <span id="image-resolution">(250px &#215 250px)</span>
+            <button onclick="downloadQR()" type="button" class="qr-download-button">Download</button>
         </div>
     </div>
 </div>
@@ -42,8 +43,10 @@
     var new_inputEyeColor = "<?php echo $qr->eye_color; ?>";
     var new_inputDotStyle = "<?php echo $qr->dot_style; ?>";
     var new_inputEyeStyle = "<?php echo $qr->eye_style; ?>";
+    var new_dynamicLink = "<?php echo $qr->dynamic_link; ?>";
     var givenWidth = 200;
     var givenHeight = 200;
+    var picResolution = document.getElementById('image-resolution');
 
     function setSize(){
         var rangeValue = rangeButton.value;
@@ -51,44 +54,50 @@
             case '1':
                 givenWidth = 250;
                 givenHeight = 250;
+                picResolution.innerHTML = ('(250px &#215 250px)');
                 break;
             case '2':
                 givenWidth = 400;
                 givenHeight = 400;
+                picResolution.innerHTML = ('(400px &#215 400px)');
                 break;
             case '3':
                 givenWidth = 800;
                 givenHeight = 800;
+                picResolution.innerHTML = ('(800px &#215 800px)');
                 break;
             case '4':
                 givenWidth = 1000;
                 givenHeight = 1000;
+                picResolution.innerHTML = ('(1000px &#215 1000px)');
                 break;
             case '5':
                 givenWidth = 1600;
                 givenHeight = 1600;
+                picResolution.innerHTML = ('(1600px &#215 1600px)');
                 break;
             default:
                 givenWidth = 250;
                 givenHeight = 250;
+                picResolution.innerHTML = ('(250px &#215 250px)');
                 break;
         }
 
-        DownloadQRGenerator(new_element, givenWidth, givenHeight, new_userInput, new_image, new_inputDotColor, new_inputEyeColor, new_inputDotStyle, new_inputEyeStyle);
+        DownloadQRGenerator(new_element, givenWidth, givenHeight, new_dynamicLink, new_image, new_inputDotColor, new_inputEyeColor, new_inputDotStyle, new_inputEyeStyle);
 
         // alert(givenWidth);
     };
 
     window.onload = function () {
-        newAttractiveQRGenerator(new_element, new_userInput, new_image, new_inputDotColor, new_inputEyeColor, new_inputDotStyle, new_inputEyeStyle);
+        newAttractiveQRGenerator(new_element, new_dynamicLink, new_image, new_inputDotColor, new_inputEyeColor, new_inputDotStyle, new_inputEyeStyle);
         setSize();
     }
     
-    function newAttractiveQRGenerator(new_element, new_userInput, new_image, new_inputDotColor, new_inputEyeColor, new_inputDotStyle, new_inputEyeStyle) {
+    function newAttractiveQRGenerator(new_element, new_dynamicLink, new_image, new_inputDotColor, new_inputEyeColor, new_inputDotStyle, new_inputEyeStyle) {
         new_qrcode = new QRCodeStyling({
         width: 300,
         height: 300,
-        data: new_userInput,
+        data: new_dynamicLink,
         type: 'svg',
         margin: 10,
         image: image ? image : null,
@@ -118,11 +127,11 @@
 }
     
 
-function DownloadQRGenerator(new_element, givenWidth, givenHeight, new_userInput, new_image, new_inputDotColor, new_inputEyeColor, new_inputDotStyle, new_inputEyeStyle) {
+function DownloadQRGenerator(new_element, givenWidth, givenHeight, new_dynamicLink, new_image, new_inputDotColor, new_inputEyeColor, new_inputDotStyle, new_inputEyeStyle) {
         downloadable_qrcode = new QRCodeStyling({
         width: givenWidth,
         height: givenHeight,
-        data: new_userInput,
+        data: new_dynamicLink,
         type: 'svg',
         margin: 10,
         image: image ? image : null,

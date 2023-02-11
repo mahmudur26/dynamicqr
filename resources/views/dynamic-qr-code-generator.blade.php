@@ -70,7 +70,7 @@
                 </div>
                 
                 <div class="download-button-container">
-                    <input type="submit" onclick="" id="qr-download-button" class="download-button"></button>
+                    <input type="submit" onclick="" id="qr-download-button" class="download-button" value="Generate">
                 </div>
             </div>
         </div>
