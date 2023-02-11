@@ -35,4 +35,11 @@ class AdminController extends Controller
         $data['users'] = User::where('is_active' , '=' , '1')->get();
         return view("admin.active-users" , $data);
     }
+
+    public function profile()
+    {
+        $data['user'] = User::where('id' , '=' , Session('login_id'))->first();
+        $data['title'] = 'Admin Profile';
+        return view("admin.profile" , $data);
+    }
 }
