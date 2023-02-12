@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\QrCodeGeneratorController;
-use App\Http\Controllers\QrCodeShowingController;
 use App\Http\Controllers\QrDbController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;

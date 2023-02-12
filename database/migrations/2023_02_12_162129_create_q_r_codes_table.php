@@ -6,9 +6,14 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
-        Schema::create('qr_code', function (Blueprint $table) {
+        Schema::create('q_r_codes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->constanted();
             $table->string('input_text')->nullable();
@@ -25,9 +30,13 @@ return new class extends Migration
         });
     }
 
-
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::dropIfExists('qr_code');
+        Schema::dropIfExists('q_r_codes');
     }
 };
