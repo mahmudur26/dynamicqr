@@ -4,13 +4,21 @@
 <div id="qr-code-full">
 <!-- <p class="card-text">Input : {{ $qr->user_input }}</p> -->
 
+<h5 class="confirmation-message">Your QR Code has been generated successfully!</h5>
+
 <div class="full-container">
     <div class="left-container">
         <!-- <label id="dynamic-link-label" for="dynamic-link">Dynamic Link</label> -->
-        <div class="dynamic-link-title-container">
-            <h5 class="dynamic-link-title"><i style="margin-right: 10px" class="fa-solid fa-globe"></i>Dynamic Link</h5>
+        <div class="link-container">
+            <div class="dynamic-link-title-container">
+                <h3 class="dynamic-link-title"><i style="margin-right: 10px" class="fa-solid fa-globe"></i>Your Generated Link</h3>
+            </div>
+            <!-- <input id="dynamic-link" type="text" class="form-control" disabled placeholder=""> -->
+            <h3 class="dynamic-link"><?php echo $qr->dynamic_link; ?></h3>
         </div>
-        <input id="dynamic-link" type="text" class="form-control" disabled placeholder="<?php echo $qr->dynamic_link; ?>">
+        <div class="alert alert-warning mt-3" role="alert">
+            You will be redirected to <span style="color: #1974d2;"><?php echo $qr->input_text; ?></span> by visiting this generated dynamic link.
+        </div>
     </div>
     <div class="preview-qr-container">
         <div class="new-qr-area" id="new_qrcode">
