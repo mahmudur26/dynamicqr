@@ -8,6 +8,6 @@ class QrCodeGeneratorController extends Controller
 {
     public function index()
     {
-        return view('dynamic-qr-code-generator');
+        return view('user.dynamic-qr-code-generator');
     }
 }

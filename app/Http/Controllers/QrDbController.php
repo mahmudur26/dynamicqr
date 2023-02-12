@@ -13,6 +13,10 @@ class QrDbController extends Controller
         return view ('qr-code')->with('qr', $qr);
     }
 
+    public function generator()
+    {
+        return view('user.dynamic-qr-code-generator');
+    }
     
     public function create()
     {
@@ -60,45 +64,17 @@ class QrDbController extends Controller
             'dynamic_link' => $dynamicLink,
         ]);
         $qrid = $qr->id;
-        
-        // echo($qrid);
-
-        // return redirect('/qr-code')->with('flash_message', 'QR Addedd!');
-        return view('/qr-code')->with('qr', $qr);  
+        return view('/user/qr-code')->with('qr', $qr);  
     }
 
-    
+    public function qr_show()
+    {
+        return view('user.qr-code');
+    }
+
     public function show($qrid)
     {
         $qr = Qr::find($qrid);
         return view('/qr-code')->with('qr', $qr);
     }
-
-    
-    // public function edit($qrid)
-    // {
-    //     $contact = Contact::find($qrid);
-    //     return view('/qr-code-edit')->with('qr', $qr);
-    // }
-
-  
-    // public function update(Request $request, $qrid)
-    // {
-    //     $qr = Qr::find($id);
-    //     $input = $request->all();
-    //     $contact->update($input);
-    //     $qrid = $qr->id;
-        
-    //     // echo($qrid);
-
-    //     // return redirect('/qr-code')->with('flash_message', 'QR Addedd!');
-    //     return view('/qr-code')->with('qr', $qr);  
-    // }
-
-   
-    // public function destroy($id)
-    // {
-    //     Contact::destroy($id);
-    //     return redirect('contact')->with('flash_message', 'Contact deleted!');  
-    // }
 }

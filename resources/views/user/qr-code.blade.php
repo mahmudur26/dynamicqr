@@ -1,6 +1,6 @@
-@extends('layout')
+@extends('user.layout')
 @section('content')
-@include('header')
+@include('user.header')
 <div id="qr-code-full">
 <!-- <p class="card-text">Input : {{ $qr->user_input }}</p> -->
 
@@ -166,4 +166,4 @@ function downloadQR() {
 
 </script>
 </div>
-@include('footer')
+@include('user.footer')
