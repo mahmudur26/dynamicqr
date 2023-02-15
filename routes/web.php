@@ -31,9 +31,7 @@ Route::get('/logout' , [LoginController::class, 'logout'])->name('logout');
 
 
 Route::resource('qrcodes', 'App\Http\Controllers\QRCodeController');
-
-Route::get('/dynamic-qr-generator', [QrDbController::class, 'generator'])->name('dynamic-qr-generator')->middleware('isLogged');
-
+Route::get('/dynamic-qr-generator', [QrDbController::class, 'generator'])->name('qr_generator')->middleware('isLogged');
 Route::get('/qr-code', [QrDbController::class, 'qr_show'])->name('qr-code')->middleware('isLogged');
-
 Route::post('/store-qr' , [QrDbController::class, 'store_qr'])->name('store-qr');
+Route::get('/user-profile' , [QrDbController::class, 'profile'])->name('user_profile');

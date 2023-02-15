@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 use App\Models\QRCode;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -59,5 +60,13 @@ class QrDbController extends Controller
     {
         $qr = QRCode::find($qrid);
         return view('/qr-code')->with('qr', $qr);
+    }
+
+    public function profile()
+    {
+        $data['user'] = User::where('id' , '=' , Session('login_id'))->first();
+        // dd($data['user']);
+        $data['title'] = 'User Profile';
+        return view("user.profile" , $data);
     }
 }
