@@ -66,6 +66,12 @@ class QrDbController extends Controller
         return view('user.qr-list', $data);
     }
 
+    public function qr_preview($id)
+    {
+        $data['qr'] = QRCode::find($id);
+        return view('user.qr-preview', $data);
+    }
+
     public function profile()
     {
         $data['user'] = User::where('id' , '=' , Session('login_id'))->first();

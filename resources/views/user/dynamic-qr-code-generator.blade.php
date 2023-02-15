@@ -1,6 +1,7 @@
-@extends('user.layout')
-@include('user.header')
+@extends('user.frame')
 @section('content')
+
+
 <form action="{{route('store-qr')}}" method="post">
 {!! csrf_field() !!}
     <div class="full-container">

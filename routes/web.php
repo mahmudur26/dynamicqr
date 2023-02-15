@@ -35,4 +35,5 @@ Route::get('/dynamic-qr-generator', [QrDbController::class, 'generator'])->name(
 Route::post('/store-qr' , [QrDbController::class, 'store_qr'])->name('store-qr');
 Route::get('/qr-generated/{id}', [QrDbController::class, 'qr_generated'])->name('qr_generated')->middleware('isLogged');
 Route::get('/qr-list', [QrDbController::class , 'qr_list'])->name('qr-list')->middleware('isLogged');
+Route::get('/qr-preview/{id}', [QrDbController::class, 'qr_preview'])->name('qr_preview')->middleware('isLogged');
 Route::get('/user-profile' , [QrDbController::class, 'profile'])->name('user_profile');

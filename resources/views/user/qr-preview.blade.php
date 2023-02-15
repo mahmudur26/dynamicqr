@@ -1,6 +1,6 @@
-@extends('user.layout')
+@extends('user.frame')
 @section('content')
-@include('user.header')
+
 <style>
 .list_show_button{
     width: 250px;
@@ -22,6 +22,7 @@
 <div class="full-container">
     <div class="left-container">
         <!-- <label id="dynamic-link-label" for="dynamic-link">Dynamic Link</label> -->
+
         <div class="link-container">
             <div class="dynamic-link-title-container">
                 <h3 class="dynamic-link-title"><i style="margin-right: 10px" class="fa-solid fa-globe"></i>Your Generated Link</h3>
@@ -29,6 +30,7 @@
             <!-- <input id="dynamic-link" type="text" class="form-control" disabled placeholder=""> -->
             <h3 class="dynamic-link"><?php echo $qr->dynamic_link; ?></h3>
         </div>
+        
         <div class="alert alert-warning mt-3" role="alert">
             You will be redirected to <span style="color: #1974d2;"><?php echo $qr->input_text; ?></span> by visiting this generated dynamic link.
         </div>
@@ -188,4 +190,5 @@ function downloadQR() {
 
 </script>
 </div>
-@include('user.footer')
+
+@endsection

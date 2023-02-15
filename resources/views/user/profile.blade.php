@@ -1,7 +1,3 @@
-@extends('user.layout')
-@section('content')
-@include('user.header')
-
 <style>
 table{
     width: 70% !important;
@@ -20,29 +16,32 @@ label{
 }
 </style>
 
-<div class="container">
-    @if(Session::has('message'))
-    <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
-    @endif
-    <table class="table table-borderless">
-        <tbody>
-            <tr>
-                <td>Name</td>
-                <td>{{$user->name}}</td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td>{{$user->email}}</td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#updatePasswordModal">Change Passsword</button></td>
-            </tr>
-        </tbody>
-    </table>
-    <button type="button" class="btn btn-success pull-right" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Profile</button>
-</div>
+@extends('user.frame')
+@section('content')
 
+@if(Session::has('message'))
+<p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+@endif
+<table class="table table-borderless">
+    <tbody>
+        <tr>
+            <td>Name</td>
+            <td>{{$user->name}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{$user->email}}</td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#updatePasswordModal">Change Passsword</button></td>
+        </tr>
+    </tbody>
+</table>
+<button type="button" class="btn btn-success pull-right" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Profile</button>
+
+
+@endsection
 
 <!-- Profile Update Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -98,5 +97,3 @@ label{
     </div>
 </div>
 
-<!-- @include('user.footer') -->
-@endsection
