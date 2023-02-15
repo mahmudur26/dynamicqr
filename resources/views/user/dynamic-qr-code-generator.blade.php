@@ -1,6 +1,6 @@
 @extends('user.layout')
-@section('content')
 @include('user.header')
+@section('content')
 <form action="{{route('store-qr')}}" method="post">
 {!! csrf_field() !!}
     <div class="full-container">
@@ -76,5 +76,5 @@
         </div>
     </div>   
 </form>
-@include('user.footer')
+<!-- @include('user.footer') -->
 @endsection

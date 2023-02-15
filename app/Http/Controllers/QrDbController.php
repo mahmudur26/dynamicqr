@@ -6,6 +6,7 @@ use App\Models\QRCode;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Redirect;
 
 class QrDbController extends Controller
 {
@@ -48,24 +49,26 @@ class QrDbController extends Controller
             'dynamic_link' => $dynamicLink,
         ]);
         $qrid = $qr->id;
-        return view('/user/qr-code')->with('qr', $qr);  
+        
+        session()->flash('message', 'QR Code Generated');
+        return redirect()->route('qr_generated' , $qrid);  
     }
 
-    public function qr_show()
+    public function qr_generated($id)
     {
-        return view('user.qr-code');
+        $data['qr'] = QRCode::find($id);
+        return view('user.qr-code', $data);
     }
 
-    public function show($qrid)
+    public function qr_list()
     {
-        $qr = QRCode::find($qrid);
-        return view('/qr-code')->with('qr', $qr);
+        $data['qrs'] = QRCode::where('user_id' , '=' , Session('login_id'))->orderBy('id', 'DESC')->get();
+        return view('user.qr-list', $data);
     }
 
     public function profile()
     {
         $data['user'] = User::where('id' , '=' , Session('login_id'))->first();
-        // dd($data['user']);
         $data['title'] = 'User Profile';
         return view("user.profile" , $data);
     }

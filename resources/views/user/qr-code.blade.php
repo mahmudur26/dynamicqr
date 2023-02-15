@@ -1,10 +1,23 @@
 @extends('user.layout')
 @section('content')
 @include('user.header')
+<style>
+.list_show_button{
+    width: 250px;
+    height: 50px;
+    background-color: green;
+    border: none;
+    color: white;
+    border-radius: 15px;
+    transition: .1s;
+}
+</style>
 <div id="qr-code-full">
 <!-- <p class="card-text">Input : {{ $qr->user_input }}</p> -->
 
-<h5 class="confirmation-message">Your QR Code has been generated successfully!</h5>
+    @if(Session::has('message'))
+    <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+    @endif
 
 <div class="full-container">
     <div class="left-container">
@@ -19,6 +32,7 @@
         <div class="alert alert-warning mt-3" role="alert">
             You will be redirected to <span style="color: #1974d2;"><?php echo $qr->input_text; ?></span> by visiting this generated dynamic link.
         </div>
+        <button class="list_show_button">Go to your QR List</button>
     </div>
     <div class="preview-qr-container">
         <div class="new-qr-area" id="new_qrcode">

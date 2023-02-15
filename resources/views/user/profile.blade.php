@@ -98,5 +98,5 @@ label{
     </div>
 </div>
 
-@include('user.footer')
+<!-- @include('user.footer') -->
 @endsection
