@@ -12,6 +12,11 @@
     transition: .1s;
 }
 </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+
 <div id="qr-code-full">
 <!-- <p class="card-text">Input : {{ $qr->user_input }}</p> -->
 
@@ -22,6 +27,11 @@
 <div class="full-container">
     <div class="left-container">
         <!-- <label id="dynamic-link-label" for="dynamic-link">Dynamic Link</label> -->
+
+        <div class="qr-hit">
+            <!-- <h3 class="qr-hit-title">QR Hit</h3> -->
+            <div class="hit-count"><span style="font-size: 20px;">QR HIT</span><span class="counter">86</span></div>
+        </div>
 
         <div class="link-container">
             <div class="dynamic-link-title-container">
@@ -52,6 +62,15 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+      $(".counter").counterUp({
+        delay: 10,
+        time: 1000
+      });
+    });
+  </script>
 
 <script>
 
