@@ -70,6 +70,23 @@
     var givenHeight = 200;
     var picResolution = document.getElementById('image-resolution');
 
+    
+    //set image here...
+    
+    // var new_image = '';
+    // function readFile(element) {
+    //     if (element.files && element.files[0]) {
+    //         const reader = new FileReader();
+    //         reader.onload = function (e) {
+    //             // $('#selectedImage').attr('src', e.target.result);
+    //             new_image = e.target.result;
+    //             QRCodeGenerator();
+    //         }
+
+    //         reader.readAsDataURL(element.files[0]);
+    //     }
+    // }
+
     function setSize(){
         var rangeValue = rangeButton.value;
         switch(rangeValue){
@@ -122,7 +139,7 @@
         data: new_dynamicLink,
         type: 'svg',
         margin: 10,
-        image: image ? image : null,
+        image: new_image ? new_image : null,
         imageOptions: {
             margin: 4,
             crossOrigin: 'anonymous',
