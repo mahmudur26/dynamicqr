@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\QRCode;
+use App\Models\QRHit;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -35,7 +36,7 @@ class QrDbController extends Controller
         $securityCode = Str::random(6);
 
 
-        $dynamicLink = 'www.thiswebsite.com/' . $securityCode;
+        $dynamicLink = '127.0.0.1:8000/view/' . $securityCode;
         
         $qr = QRCode::create([
             'user_id' => Session('login_id'),
@@ -80,6 +81,7 @@ class QrDbController extends Controller
     public function qr_preview($id)
     {
         $data['qr'] = QRCode::find($id);
+        $data['qr_hit'] = QRHit::where('qr_id' , '=' , $id)->count();
         return view('user.qr-preview', $data);
     }
 

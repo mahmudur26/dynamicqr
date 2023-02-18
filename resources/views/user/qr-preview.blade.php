@@ -30,7 +30,7 @@
 
         <div class="qr-hit">
             <!-- <h3 class="qr-hit-title">QR Hit</h3> -->
-            <div class="hit-count"><span style="font-size: 20px;">QR HIT</span><span class="counter">86</span></div>
+            <div class="hit-count"><span style="font-size: 20px;">QR HIT</span><span>{{$qr_hit}}</span></div>
         </div>
 
         <div class="link-container">

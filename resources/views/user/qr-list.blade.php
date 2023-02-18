@@ -39,7 +39,6 @@ tr, th{
         <th>Random Code</th>
         <th>Dynamic Link</th>
         <th>Created On</th>
-        <th>Hit Count</th>
         <th>Edit</th>
         <th>View Detail</th>
     </thead>
@@ -51,7 +50,6 @@ tr, th{
             <td>{{$qr->random_code}}</td>
             <td>{{$qr->dynamic_link}}</td>
             <td>{{$qr->created_at}}</td>
-            <td>000</td>
             <td><a href="{{url('/qr-edit/'.$qr->id)}}"><button class="edit_button">Edit</button></a></td>
             <td><a href="{{url('/qr-preview/'.$qr->id)}}"><button class="view_button">View</button></a></td>
         </tr>
