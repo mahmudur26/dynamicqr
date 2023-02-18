@@ -83,6 +83,24 @@ class QrDbController extends Controller
         return view('user.qr-preview', $data);
     }
 
+    public function qr_edit($id)
+    {
+        $data['qr'] = QRCode::find($id);
+        return view('user.qr-edit', $data);
+    }
+
+    public function url_change(Request $request)
+    {
+        $data = [
+            'input_text' => $request->updated_url,
+        ];
+
+        QRCode::where('id' , '=' , $request->qr_id)->update($data);
+        
+        session()->flash('message', 'URL Updated');
+        return redirect()->route('qr_preview', $request->qr_id);
+    }
+
     public function profile()
     {
         $data['user'] = User::where('id' , '=' , Session('login_id'))->first();

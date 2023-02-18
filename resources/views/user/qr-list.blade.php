@@ -5,10 +5,20 @@
     width: 80px;
     height: 25px;
     border: none;
-    background-color: rgb(0, 100, 0);
+    background-color: #58111A;
     border-radius: 10px;
     color: white;
 }
+
+.edit_button{
+    width: 80px;
+    height: 25px;
+    border: none;
+    background-color: #FF3800;
+    border-radius: 10px;
+    color: white;
+}
+
 table{
     margin-top: 30px;
 }
@@ -30,6 +40,7 @@ tr, th{
         <th>Dynamic Link</th>
         <th>Created On</th>
         <th>Hit Count</th>
+        <th>Edit</th>
         <th>View Detail</th>
     </thead>
     <tbody>
@@ -41,6 +52,7 @@ tr, th{
             <td>{{$qr->dynamic_link}}</td>
             <td>{{$qr->created_at}}</td>
             <td>000</td>
+            <td><a href="{{url('/qr-edit/'.$qr->id)}}"><button class="edit_button">Edit</button></a></td>
             <td><a href="{{url('/qr-preview/'.$qr->id)}}"><button class="view_button">View</button></a></td>
         </tr>
         @endforeach
