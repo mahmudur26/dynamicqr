@@ -13,11 +13,16 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function test(Request $request)
+    // public function test(Request $request)
+    // {
+    //     DB::table('site_visitor')->insert([
+    //         'user_ip' => $request->ip(),
+    //         'created_at' => now(),
+    //     ]);
+    // }
+
+    public function test()
     {
-        DB::table('site_visitor')->insert([
-            'user_ip' => $request->ip(),
-            'created_at' => now(),
-        ]);
+        echo url('');
     }
 }

@@ -36,7 +36,7 @@ class QrDbController extends Controller
         $securityCode = Str::random(6);
 
 
-        $dynamicLink = '127.0.0.1:8000/view/' . $securityCode;
+        $dynamicLink = url('').'/view/' . $securityCode;
         
         $qr = QRCode::create([
             'user_id' => Session('login_id'),
