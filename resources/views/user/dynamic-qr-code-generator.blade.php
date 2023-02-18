@@ -2,8 +2,8 @@
 @section('content')
 
 
-<form action="{{route('store-qr')}}" method="post">
-{!! csrf_field() !!}
+<form action="{{route('store-qr')}}" method="post" enctype="multipart/form-data">
+@csrf
     <div class="full-container">
         <div class="main-container">
             <div class="input-container">

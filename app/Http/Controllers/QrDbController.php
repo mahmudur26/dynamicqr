@@ -40,7 +40,6 @@ class QrDbController extends Controller
         $qr = QRCode::create([
             'user_id' => Session('login_id'),
             'input_text' => $request->input('user_input'),
-            'logo_name' => $request->input('logo_name'),
             'dot_color' => $request->input('dot_color'),
             'eye_color' => $request->input('eye_color'),
             'dot_style' => $request->input('dot_style'),
@@ -49,6 +48,18 @@ class QrDbController extends Controller
             'dynamic_link' => $dynamicLink,
         ]);
         $qrid = $qr->id;
+
+        if($request->file('logo_name'))
+        {
+            $upload_path = public_path('qr_icon/'.Session('login_id').'/'.$qrid);
+            $fileName = $request->file('logo_name')->getClientOriginalName();
+            $request->file('logo_name')->move($upload_path , $fileName);
+
+            $icon_update = [
+                'logo_name' => $fileName
+            ];
+            QRCode::where('id' , '=' , $qrid)->update($icon_update);
+        }
         
         session()->flash('message', 'QR Code Generated');
         return redirect()->route('qr_generated' , $qrid);  
