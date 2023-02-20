@@ -21,7 +21,7 @@
         @foreach ($users as $user)
         <tr>
             <td>{{$user->id}}</td>
-            <td>dat{{$user->email}}a</td>
+            <td>{{$user->email}}a</td>
             <td>{{$user->phone}}</td>
             <td><a href="{{url('/user-approve/'.$user->id)}}" type="button" class="btn btn-primary btn-sm">Approve</a></td>
             <td><a href="{{url('/user-reject/'.$user->id)}}" type="button" class="btn btn-danger btn-sm">Reject</a></td>

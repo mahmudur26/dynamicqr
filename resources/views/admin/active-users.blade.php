@@ -20,7 +20,7 @@
         @foreach ($users as $user)
         <tr>
             <td>{{$user->id}}</td>
-            <td>dat{{$user->email}}a</td>
+            <td>{{$user->email}}a</td>
             <td>{{$user->phone}}</td>
             <td><a href="" type="button" class="btn btn-primary btn-sm">Detail</a></td>
         </tr>
