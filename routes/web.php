@@ -11,6 +11,7 @@ use App\Http\Controllers\RegisterController;
 Route::get('/view/{id}', [QrPreview::class , 'qr_preview']);
 
 Route::get('/test' , [Controller::class, 'test']);
+Route::get('/send' , [Controller::class, 'send_mail']);
 
 Route::get('/pending-users' , [AdminController::class , 'pending_users'])->name('pending-users')->middleware('isLogged');
 Route::get('/user-approve/{id}' , [AdminController::class , 'user_approve']);

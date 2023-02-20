@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\VerificationMail;
+use Exception;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -24,5 +27,24 @@ class Controller extends BaseController
     public function test()
     {
         echo url('');
+    }
+
+    public function send_mail()
+    {
+        $data = [
+            "subject"=>"Testing Mail",
+            "body"=>"Hello friends, Welcome to Cambo Tutorial Mail Delivery!",
+            "code" => 'AVC34D'
+            ];
+          // MailNotify class that is extend from Mailable class.
+          try
+          {
+            Mail::to('mahmudur@appnap.io')->send(new VerificationMail($data));
+            return response()->json(['Great! Successfully send in your mail']);
+          }
+          catch(Exception $e)
+          {
+            return response()->json(['Sorry! Please try again latter']);
+          }
     }
 }
