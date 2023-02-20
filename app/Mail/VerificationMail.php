@@ -22,7 +22,7 @@ class VerificationMail extends Mailable
     public function build()
     {
         $mailData['code'] = $this->data["code"];
-        return $this->from('shieldz.co@gmail.com', 'Testing')
+        return $this->from('shieldz.co@gmail.com', 'Company Name Here')
                     ->subject($this->data["subject"])
                     ->view('mail.verify_mail' , $mailData)
                     ->with("data",$this->data);

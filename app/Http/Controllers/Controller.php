@@ -33,10 +33,8 @@ class Controller extends BaseController
     {
         $data = [
             "subject"=>"Testing Mail",
-            "body"=>"Hello friends, Welcome to Cambo Tutorial Mail Delivery!",
             "code" => 'AVC34D'
             ];
-          // MailNotify class that is extend from Mailable class.
           try
           {
             Mail::to('mahmudur@appnap.io')->send(new VerificationMail($data));
