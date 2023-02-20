@@ -34,6 +34,16 @@ class LoginController extends Controller
             {
                 if(Hash::check($request->login_password , $verification->password))
                     {
+                        if($verification->is_verified != 1)
+                            {
+                                session()->flash('message', 'Verify your Email First.');
+                                return redirect()->back();
+                            }
+                        if($verification->is_active != 1)
+                            {
+                                session()->flash('message', 'Your profile verification is on processinng. Please Wait.');
+                                return redirect()->back();
+                            }
                         if($verification->is_admin == NULL)
                             { //IF ADMIN FALSE, NORMAL USER
                                 $request->session()->put('login_id' , $verification->id);
