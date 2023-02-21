@@ -28,6 +28,13 @@ class RegisterController extends Controller
         $token = Str::random(6);
         $user_email = strtolower($request->input('email'));
 
+        $userCheck = User::where('email' , '=' , $user_email)->first();;
+        
+        if($userCheck != NULL)
+        {
+            session()->flash('message', 'The email is already in use. Try to reset your password.');
+            return redirect()->back();
+        }
         $user = User::create([
             'email' => strtolower($request->input('email')),
             'phone' => strtolower($request->input('phone')),
