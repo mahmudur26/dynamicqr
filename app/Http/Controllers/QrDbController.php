@@ -40,7 +40,7 @@ class QrDbController extends Controller
         
         $qr = QRCode::create([
             'user_id' => Session('login_id'),
-            'input_text' => $request->input('user_input'),
+            'input_text' => 'https://'.$request->input('user_input'),
             'dot_color' => $request->input('dot_color'),
             'eye_color' => $request->input('eye_color'),
             'dot_style' => $request->input('dot_style'),

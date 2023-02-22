@@ -12,8 +12,11 @@
                     <button onclick="formType('siteUrl')" class="criteria-button"><i class="fa-regular fa-envelope"></i>URL</button>
                     <button class="criteria-button"><i class="fa-regular fa-plus"></i>Other</button>
                 </div> -->
+                <div class="input-tag">
+                    https://
+                </div>
                 <div class="input-area">
-                    <input required id="user-input-text" oninput="QRCodeGenerator()" name="user_input" autofocus class="input-texarea mb-4" rows="4" cols="50" placeholder="Write your text here..."></input>
+                    <input required id="user-input-text" oninput="QRCodeGenerator()" name="user_input" autofocus class="input-textarea mb-4" rows="4" cols="50" placeholder="Enter your URL here..."></input>
                 </div>
                 <div class="modification-container">
                     <div class="input-group mb-3 select-image-container">
