@@ -81,7 +81,7 @@
     new_element.innerHTML = '';
 
     var new_userInput = "<?php echo $qr->user_input; ?>";
-    var new_image = null;
+    var new_image = "{{ asset('') }}" + 'qr_icon/<?php echo $qr->user_id; ?>/<?php echo $qr->id; ?>/<?php echo $qr->logo_name; ?>';
     var new_inputDotColor = "<?php echo $qr->dot_color; ?>";
     var new_inputEyeColor = "<?php echo $qr->eye_color; ?>";
     var new_inputDotStyle = "<?php echo $qr->dot_style; ?>";
@@ -143,7 +143,7 @@
         data: new_dynamicLink,
         type: 'svg',
         margin: 10,
-        image: image ? image : null,
+        image: new_image ? new_image : null,
         imageOptions: {
             margin: 4,
             crossOrigin: 'anonymous',
@@ -177,7 +177,7 @@ function DownloadQRGenerator(new_element, givenWidth, givenHeight, new_dynamicLi
         data: new_dynamicLink,
         type: 'svg',
         margin: 10,
-        image: image ? image : null,
+        image: new_image ? new_image : null,
         imageOptions: {
             margin: 4,
             crossOrigin: 'anonymous',

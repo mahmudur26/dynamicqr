@@ -60,7 +60,7 @@
     new_element.innerHTML = '';
 
     var new_userInput = "<?php echo $qr->user_input; ?>";
-    var new_image = null;
+    var new_image = "{{ asset('') }}" + 'qr_icon/<?php echo $qr->user_id; ?>/<?php echo $qr->id; ?>/<?php echo $qr->logo_name; ?>';
     var new_inputDotColor = "<?php echo $qr->dot_color; ?>";
     var new_inputEyeColor = "<?php echo $qr->eye_color; ?>";
     var new_inputDotStyle = "<?php echo $qr->dot_style; ?>";
@@ -69,23 +69,6 @@
     var givenWidth = 200;
     var givenHeight = 200;
     var picResolution = document.getElementById('image-resolution');
-
-    
-    //set image here...
-    
-    // var new_image = '';
-    // function readFile(element) {
-    //     if (element.files && element.files[0]) {
-    //         const reader = new FileReader();
-    //         reader.onload = function (e) {
-    //             // $('#selectedImage').attr('src', e.target.result);
-    //             new_image = e.target.result;
-    //             QRCodeGenerator();
-    //         }
-
-    //         reader.readAsDataURL(element.files[0]);
-    //     }
-    // }
 
     function setSize(){
         var rangeValue = rangeButton.value;
@@ -173,7 +156,7 @@ function DownloadQRGenerator(new_element, givenWidth, givenHeight, new_dynamicLi
         data: new_dynamicLink,
         type: 'svg',
         margin: 10,
-        image: image ? image : null,
+        image: new_image ? new_image : null,
         imageOptions: {
             margin: 4,
             crossOrigin: 'anonymous',
