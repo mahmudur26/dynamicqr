@@ -8,7 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\QrPreview;
 use App\Http\Controllers\RegisterController;
 
-Route::get('/view/{id}', [QrPreview::class , 'qr_preview']);
+Route::get('/qr/{id}', [QrPreview::class , 'qr_preview']);
 
 Route::get('/test' , [Controller::class, 'test']);
 Route::get('/send' , [Controller::class, 'send_mail']);
