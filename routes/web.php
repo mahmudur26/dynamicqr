@@ -29,6 +29,7 @@ Route::post('/login-user' , [LoginController::class, 'login_user'])->name('login
 
 Route::get('/register' , [RegisterController::class, 'register'])->name('register')->middleware('isAlreadyLogged');
 Route::post('/register-user' , [RegisterController::class, 'register_user'])->name('register-user');
+Route::get('/verify-user/{id}/{token}' , [RegisterController::class, 'verify_user'])->name('verify-user');
 
 Route::get('/logout' , [LoginController::class, 'logout'])->name('logout');
 

@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Mail\VerificationMail;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
@@ -59,5 +60,25 @@ class RegisterController extends Controller
           catch(Exception $e)
           {
           }
+    }
+
+    public function verify_user($user , $token)
+    {
+        $checkUser = User::where('id' , '=' , $user)->first();
+        // dd($checkUser->email_verification_token);
+        if($checkUser!=NULL)
+        {
+            if($checkUser->email_verification_token == $token)
+            {
+                $data = [
+                    'is_active' => 1,
+                    'email_verified_at' => Carbon::now(),
+                ];
+                User::where('id' , '=' , $user)->update($data);
+            }
+            else
+            dd('not');
+        }
+        
     }
 }
