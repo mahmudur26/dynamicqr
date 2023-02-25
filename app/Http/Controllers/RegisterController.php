@@ -69,20 +69,28 @@ class RegisterController extends Controller
         $checkUser = User::where('email' , '=' , $user_email)->first();
         if($checkUser!=NULL)
         {
-            if($checkUser->email_verification_token == $token)
+            if($checkUser->is_active == 1)
             {
-                $data = [
-                    'is_active' => 1,
-                    'email_verified_at' => Carbon::now()->toDateTimeString(),
-                ];
-                User::where('email' , '=' , $user_email)->update($data);
-                session()->flash('message', 'Your email has been successfully activated. Please wait to get activated by the admin.');
+                session()->flash('message', 'Your email has activated once. Try to reset.');
                 return redirect()->route('login');
             }
             else
             {
-                session()->flash('message', 'Invalid Token. Try to reset your password.');
-                return redirect()->route('login');
+                if($checkUser->email_verification_token == $token)
+                {
+                    $data = [
+                        'is_active' => 1,
+                        'email_verified_at' => Carbon::now()->toDateTimeString(),
+                    ];
+                    User::where('email' , '=' , $user_email)->update($data);
+                    session()->flash('message', 'Your email has been successfully activated. Please wait to get activated by the admin.');
+                    return redirect()->route('login');
+                }
+                else
+                {
+                    session()->flash('message', 'Invalid Token. Try to reset your password.');
+                    return redirect()->route('login');
+                }
             }
         }
         else
