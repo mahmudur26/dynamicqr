@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\QrPreview;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ResetPassword;
 
 Route::get('/qr/{id}', [QrPreview::class , 'qr_preview']);
 
@@ -30,6 +31,9 @@ Route::post('/login-user' , [LoginController::class, 'login_user'])->name('login
 Route::get('/register' , [RegisterController::class, 'register'])->name('register')->middleware('isAlreadyLogged');
 Route::post('/register-user' , [RegisterController::class, 'register_user'])->name('register-user');
 Route::get('/verify-user/{id}/{token}' , [RegisterController::class, 'verify_user'])->name('verify-user');
+
+Route::get('/reset-password' , [ResetPassword::class, 'search_email']);
+Route::post('/reset-password' , [ResetPassword::class, 'send_resetPass_email'])->name('find-password-to-reset');
 
 Route::get('/logout' , [LoginController::class, 'logout'])->name('logout');
 
