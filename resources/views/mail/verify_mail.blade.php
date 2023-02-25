@@ -11,7 +11,7 @@
   }
   .verification_button{
     background-color: rgb(0, 141, 0);
-    color: white;
+    color: white !important;
     padding: 10px 15px;
     border-radius: 5px;
     display: grid;
@@ -19,7 +19,13 @@
     text-align: center;
     width: 60%;
     font-size: 20px;
+    text-decoration: none;
   }
+
+  a.link{
+    color: white;
+  }
+
   </style>
   </head>
 <html lang="en">
@@ -36,7 +42,7 @@
           <br><br>
           Company Support Team
           <br><br>
-          <a class="verification_button">Verify Email</a>
+          <a href="{{url('').'/verify-user/'.$email.'/'.$code}}" class="verification_button" target="_blank">Verify Email</a>
         </p>
       </div>
     </body>
