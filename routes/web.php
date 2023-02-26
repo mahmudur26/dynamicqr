@@ -32,7 +32,7 @@ Route::get('/register' , [RegisterController::class, 'register'])->name('registe
 Route::post('/register-user' , [RegisterController::class, 'register_user'])->name('register-user');
 Route::get('/verify-user/{id}/{token}' , [RegisterController::class, 'verify_user'])->name('verify-user');
 
-Route::get('/reset-password' , [ResetPassword::class, 'search_email']);
+Route::get('/reset-password' , [ResetPassword::class, 'search_email'])->name('reset-password');
 Route::post('/reset-password' , [ResetPassword::class, 'send_resetPass_email'])->name('find-password-to-reset');
 
 Route::get('/logout' , [LoginController::class, 'logout'])->name('logout');

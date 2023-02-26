@@ -13,6 +13,10 @@
                     <input id="input-email" oninput="validateEmail()" type="email" name="user_email" placeholder="Email" class="email-field form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                 </div>
                 <button type="submit" class="sign-in-btn btn btn-success">Search</button>
+                <hr>
+                <div class="bottom-links d-flex align-items-center justify-content-center">
+                    <p class="p-1 m-0">You know your credentials? <a href="{{route('login')}}">Sign In</a></p>
+                </div>
             </div>
         </form>
     </div>

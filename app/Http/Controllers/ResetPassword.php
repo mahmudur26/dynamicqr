@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,9 +18,10 @@ class ResetPassword extends Controller
 
     public function send_resetPass_email(Request $request)
     {
+        $userEmail = strtolower($request->user_email);
         $email_status = DB::table('users')
                         ->select('email')
-                        ->where('email' , $request->user_email)
+                        ->where('email' , $userEmail)
                         ->first();
         if($email_status == NULL)
         {
@@ -28,7 +30,11 @@ class ResetPassword extends Controller
         }
         else
         {
-            
+            $token = Str::random(6);
+            $data = [
+              'password_recovery_token' => $token  
+            ];
+            User::where('email' , $userEmail)->update($data);
         }
     }
 }
