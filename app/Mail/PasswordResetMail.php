@@ -22,7 +22,7 @@ class PasswordResetMail extends Mailable
     {
         $mailData['code'] = $this->data['code'];
         $mailData['email'] = $this->data['email'];
-        return $this->from('shieldz.co@gmail.com', 'Company Name Here')
+        return $this->from('noreply@qrcode.co.ke', 'Global Technologies Ltd')
                     ->subject($this->data["subject"])
                     ->view('mail.password_reset_mail' , $mailData)
                     ->with("data",$this->data);

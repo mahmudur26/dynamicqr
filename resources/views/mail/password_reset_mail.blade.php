@@ -38,9 +38,9 @@
           <br>
           Please use the eight digit code to reset your password.
           <br>
-          If you did not apply to reset password, please ignore this email or contuct us at contact@companyemail.com.
+          If you did not apply to reset password, please ignore this email or contuct us at contact@qrcode.co.ke
           <br><br>
-          Company Support Team
+          Web Support Team
           <br><br>
           <a class="verification_button" target="_blank">{{$code}}</a>
         </p>

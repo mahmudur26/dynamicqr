@@ -38,9 +38,9 @@
           <br>
           Please click the link below to verify your email address.
           <br>
-          If you did not sign up to Company, please ignore this email or contuct us at contact@companyemail.com.
+          If you did not sign up to Company, please ignore this email or contuct us at contact@qrcode.co.ke
           <br><br>
-          Company Support Team
+          Web Support Team
           <br><br>
           <a href="{{url('').'/verify-user/'.$email.'/'.$code}}" class="verification_button" target="_blank">Verify Email</a>
         </p>
