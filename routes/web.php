@@ -34,6 +34,8 @@ Route::get('/verify-user/{id}/{token}' , [RegisterController::class, 'verify_use
 
 Route::get('/reset-password' , [ResetPassword::class, 'search_email'])->name('reset-password');
 Route::post('/reset-password' , [ResetPassword::class, 'send_resetPass_email'])->name('find-password-to-reset');
+Route::get('/reset/{email}' , [ResetPassword::class, 'reset_password'])->name('pass-reset-form');
+Route::post('/set-password' , [ResetPassword::class, 'set_new_password'])->name('set-new-password');
 
 Route::get('/logout' , [LoginController::class, 'logout'])->name('logout');
 
