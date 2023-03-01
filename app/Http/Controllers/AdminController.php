@@ -12,20 +12,22 @@ class AdminController extends Controller
     public function pending_users()
     {
         $data['title'] = 'Pending Users';
-        $data['users'] = User::where('is_active' , '=' , NULL)->get();
+        $data['users'] = User::where('is_verified' , '=' , NULL)
+                                ->where('is_active' , '=' , 1)    
+                                ->get();
         return view("admin.pending-users" , $data);
     }
 
     public function user_approve($id)
     {
-        User::where('id' , '=' , $id)->update(['is_active' => '1']);
+        User::where('id' , '=' , $id)->update(['is_verified' => '1']);
         session()->flash('message', 'The User has been activated.');
         return redirect()->back();
     }
 
     public function user_reject($id)
     {
-        User::where('id' , '=' , $id)->update(['is_active' => '0']);
+        User::where('id' , '=' , $id)->update(['is_verified' => '0']);
         session()->flash('message', 'The User has been rejected.');
         return redirect()->back();
     }
@@ -33,7 +35,9 @@ class AdminController extends Controller
     public function active_users()
     {
         $data['title'] = 'Active Users';
-        $data['users'] = User::where('is_active' , '=' , '1')->get();
+        $data['users'] = User::where('is_verified' , '=' , 1)
+                            ->where('is_active' , '=' , 1)    
+                            ->get();
         return view("admin.active-users" , $data);
     }
 
