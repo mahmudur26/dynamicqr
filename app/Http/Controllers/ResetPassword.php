@@ -47,7 +47,7 @@ class ResetPassword extends Controller
               try
               {
                 Mail::to($userEmail)->send(new PasswordResetMail($data));
-                session()->flash('message', 'An eight digit code has been sent to your email');
+                session()->flash('message', 'Eight digit code has been sent to your email');
                 return redirect()->route('pass-reset-form' , $userEmail);
               }
               catch(Exception $e)
