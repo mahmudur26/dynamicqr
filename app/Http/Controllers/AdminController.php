@@ -28,7 +28,7 @@ class AdminController extends Controller
     public function user_reject($id)
     {
         User::where('id' , '=' , $id)->update(['is_verified' => '0']);
-        session()->flash('message', 'The User has been rejected.');
+        session()->flash('message', 'The User has been rejected!');
         return redirect()->back();
     }
 
