@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/eyewitne/dev.qrcode.co.ke/
-    - /bin/cp -r * $DEPLOYPATH
+    - /bin/cp * $DEPLOYPATH
