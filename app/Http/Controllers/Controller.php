@@ -16,6 +16,11 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public function home_page()
+    {
+        return view('landing.homeFrame');
+    }
+
     // public function test(Request $request)
     // {
     //     DB::table('site_visitor')->insert([

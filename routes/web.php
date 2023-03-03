@@ -22,9 +22,8 @@ Route::get('/admin-profile' , [AdminController::class , 'profile'])->name('admin
 Route::post('/admin-profile_update' , [AdminController::class , 'update_profile'])->name('admin_update_profile_information')->middleware('isLogged');
 Route::post('/admin_update_password' , [AdminController::class , 'update_password'])->name('admin_update_password')->middleware('isLogged');
 
+Route::get('/' , [Controller::class, 'home_page'])->name('home-page');
 
-
-Route::get('/' , [LoginController::class, 'login'])->name('login')->middleware('isAlreadyLogged');
 Route::get('/login' , [LoginController::class, 'login'])->name('login')->middleware('isAlreadyLogged');
 Route::post('/login-user' , [LoginController::class, 'login_user'])->name('login-user');
 
