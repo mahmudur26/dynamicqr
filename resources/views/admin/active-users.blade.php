@@ -27,6 +27,13 @@
         @endforeach
     </tbody>
     </table>
-</div>
+    <div class="center">
+        <div class="pagination">
+            @for($currentPage = 1 ; $currentPage <= $totalPageCount ; $currentPage++)
+                <a href="{{url('/active-users?page='.$currentPage)}}" class="<?php echo $page==$currentPage ? 'active' : '' ?>">{{$currentPage}}</a>
+            @endfor
+        </div>
+    </div>
+    </div>
 
 @endsection

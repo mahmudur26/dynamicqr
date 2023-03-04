@@ -11,10 +11,25 @@ class AdminController extends Controller
 {
     public function pending_users()
     {
-        $data['title'] = 'Pending Users';
+        $perPageRecord = 10;
+        $pageRecordStart = 0;
+        request('page') == null ? $data['page'] = 1 : $data['page'] = request('page'); 
+        if(request('page'))
+        {
+            $pageRecordStart = ($data['page'] - 1)*$perPageRecord;
+        }
+        $totalRecord = User::where('is_verified' , '=' , 1)
+                            ->where('is_active' , '=' , 1)    
+                            ->get();
+        $data['totalPageCount'] = (int)ceil(sizeof($totalRecord) / $perPageRecord);
+
         $data['users'] = User::where('is_verified' , '=' , NULL)
-                                ->where('is_active' , '=' , 1)    
+                                ->where('is_active' , '=' , 1) 
+                                ->limit($perPageRecord)
+                                ->offset($pageRecordStart)    
                                 ->get();
+        
+        $data['title'] = 'Pending Users';
         return view("admin.pending-users" , $data);
     }
 
@@ -34,10 +49,24 @@ class AdminController extends Controller
 
     public function active_users()
     {
-        $data['title'] = 'Active Users';
-        $data['users'] = User::where('is_verified' , '=' , 1)
+        $perPageRecord = 10;
+        $pageRecordStart = 0;
+        request('page') == null ? $data['page'] = 1 : $data['page'] = request('page'); 
+        if(request('page'))
+        {
+            $pageRecordStart = ($data['page'] - 1)*$perPageRecord;
+        }
+        $totalRecord = User::where('is_verified' , '=' , 1)
                             ->where('is_active' , '=' , 1)    
                             ->get();
+        $data['totalPageCount'] = (int)ceil(sizeof($totalRecord) / $perPageRecord);
+        
+        $data['users'] = User::where('is_verified' , '=' , 1)
+                            ->where('is_active' , '=' , 1) 
+                            ->limit($perPageRecord)
+                            ->offset($pageRecordStart)   
+                            ->get();
+        $data['title'] = 'Active Users';
         return view("admin.active-users" , $data);
     }
 
