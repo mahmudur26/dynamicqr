@@ -124,4 +124,27 @@ class AdminController extends Controller
         // session()->flash('message', 'Profile Updated');
         // return redirect()->back();
     }
+
+    public function user_detail($id)
+    {
+        $data['user'] = User::where('id' , $id)->first();
+        $data['title'] = 'User Detail';
+        return view("admin.user-detail" , $data);
+    }
+
+    public function suspend_user($id)
+    {
+        $user = User::where('id' , $id)->first();
+        if($user)
+        {
+            // dd('ok');
+            User::where('id' , $id)->delete();
+            return redirect('active-users')->with('message' , 'The User has been removed.');
+        }
+        else
+        {
+            session()->flash('message', 'Invalid User.');
+            return redirect()->back();
+        }
+    }
 }

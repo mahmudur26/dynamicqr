@@ -15,6 +15,7 @@
         <th scope="col">Phone</th>
         <th scope="col">Approve</th>
         <th scope="col">Reject</th>
+        <th scope="col">User Detail</th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +26,7 @@
             <td>{{$user->phone}}</td>
             <td><a href="{{url('/user-approve/'.$user->id)}}" type="button" class="btn btn-primary btn-sm">Approve</a></td>
             <td><a href="{{url('/user-reject/'.$user->id)}}" type="button" class="btn btn-danger btn-sm">Reject</a></td>
+            <td><a href="{{url('/user-detail/'.$user->id)}}" type="button" class="btn btn-warning btn-sm">See Detail</a></td>
         </tr>
         @endforeach
     </tbody>
@@ -32,7 +34,7 @@
     <div class="center">
         <div class="pagination">
             @for($currentPage = 1 ; $currentPage <= $totalPageCount ; $currentPage++)
-                <a href="{{url('/active-users?page='.$currentPage)}}" class="<?php echo $page==$currentPage ? 'active' : '' ?>">{{$currentPage}}</a>
+                <a href="{{url('/pending-users?page='.$currentPage)}}" class="<?php echo $page==$currentPage ? 'active' : '' ?>">{{$currentPage}}</a>
             @endfor
         </div>
     </div>

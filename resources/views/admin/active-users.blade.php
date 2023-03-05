@@ -22,7 +22,7 @@
             <td>{{$user->id}}</td>
             <td>{{$user->email}}</td>
             <td>{{$user->phone}}</td>
-            <td><a href="" type="button" class="btn btn-primary btn-sm">Detail</a></td>
+            <td><a href="{{url('/user-detail/'.$user->id)}}" type="button" class="btn btn-primary btn-sm">Detail</a></td>
         </tr>
         @endforeach
     </tbody>
