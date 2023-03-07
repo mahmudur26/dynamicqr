@@ -21,9 +21,9 @@ Route::get('/active-users' , [AdminController::class , 'active_users'])->name('a
 Route::get('/admin-profile' , [AdminController::class , 'profile'])->name('admin_profile')->middleware('isLogged');
 Route::post('/admin-profile_update' , [AdminController::class , 'update_profile'])->name('admin_update_profile_information')->middleware('isLogged');
 Route::post('/admin_update_password' , [AdminController::class , 'update_password'])->name('admin_update_password')->middleware('isLogged');
-Route::get('/user-detail/{id}' , [AdminController::class , 'user_detail']);
-Route::get('/suspend-user/{id}' , [AdminController::class , 'suspend_user']);
-Route::get('/site-statistics' , [AdminController::class , 'site_statistics']);
+Route::get('/user-detail/{id}' , [AdminController::class , 'user_detail'])->middleware('isLogged');
+Route::get('/suspend-user/{id}' , [AdminController::class , 'suspend_user'])->middleware('isLogged');
+Route::get('/site-statistics' , [AdminController::class , 'site_statistics'])->middleware('isLogged');
 
 Route::get('/' , [Controller::class, 'home_page'])->name('home-page');
 
