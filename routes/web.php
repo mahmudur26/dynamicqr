@@ -48,5 +48,6 @@ Route::get('/qr-generated/{id}', [QrDbController::class, 'qr_generated'])->name(
 Route::get('/qr-list', [QrDbController::class , 'qr_list'])->name('qr-list')->middleware('isLogged');
 Route::get('/qr-preview/{id}', [QrDbController::class, 'qr_preview'])->name('qr_preview')->middleware('isLogged');
 Route::get('/qr-edit/{id}', [QrDbController::class, 'qr_edit'])->name('qr_edit')->middleware('isLogged');
+Route::get('/qr-statistics/{id}', [QrDbController::class, 'qr_statistics'])->middleware('isLogged');
 Route::post('/url-change', [QrDbController::class, 'url_change'])->name('change_url')->middleware('isLogged');
 Route::get('/user-profile' , [QrDbController::class, 'profile'])->name('user_profile');

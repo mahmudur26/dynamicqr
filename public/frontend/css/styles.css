@@ -660,3 +660,8 @@ hr {
         width: 65vw;
     }
 }
+
+.no_record_text{
+    text-align: center;
+    font-size: 20px;
+  }

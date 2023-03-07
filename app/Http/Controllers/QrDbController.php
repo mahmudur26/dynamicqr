@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+use Redirect;
 use App\Models\User;
-use App\Models\QRCode;
 use App\Models\QRHit;
+use App\Models\QRCode;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
-use Redirect;
 
 class QrDbController extends Controller
 {
@@ -101,6 +102,44 @@ class QrDbController extends Controller
         
         session()->flash('message', 'URL Updated');
         return redirect()->route('qr_preview', $request->qr_id);
+    }
+
+    public function qr_statistics($id)
+    {
+        $data['qr_stat'] = DB::table('q_r_hits')
+            ->select('*')
+            ->where('qr_id' , $id)
+            ->orderBy('id' , 'DESC')
+            ->get();
+        $today_temp = Carbon::now()->format('d/m/Y');
+        $fromDay_temp = Carbon::now()->subDays(5)->format('d/m/Y');
+        $today = Carbon::createFromFormat('d/m/Y', $today_temp);
+        $fromDay = Carbon::createFromFormat('d/m/Y', $fromDay_temp);;
+        
+        $scanData = DB::table('q_r_hits')
+                            ->select(DB::raw('DATE(created_at) as date, COUNT(*) as view'))
+                            ->where('qr_id' , $id)
+                            ->whereBetween('created_at' , [$fromDay , $today])
+                            ->groupBy('date')
+                            ->get();
+        
+        $day = [];
+        $hit = [];
+        foreach($scanData as $key => $res){
+            $hit[] = $res->view;
+        }
+        $dayTemp = 0;
+        while($dayTemp < 7)
+        {
+            $day[] = Carbon::now()->subDays($dayTemp)->format('d/m/Y');
+            $dayTemp++;
+        }
+        
+        $data['day'] = json_encode($day);
+        $data['hit'] = json_encode($hit);
+
+        $data['title'] = 'QR Code Statistics';
+        return view("user.qr-statistics" , $data);
     }
 
     public function profile()
