@@ -23,6 +23,7 @@ Route::post('/admin-profile_update' , [AdminController::class , 'update_profile'
 Route::post('/admin_update_password' , [AdminController::class , 'update_password'])->name('admin_update_password')->middleware('isLogged');
 Route::get('/user-detail/{id}' , [AdminController::class , 'user_detail']);
 Route::get('/suspend-user/{id}' , [AdminController::class , 'suspend_user']);
+Route::get('/site-statistics' , [AdminController::class , 'site_statistics']);
 
 Route::get('/' , [Controller::class, 'home_page'])->name('home-page');
 

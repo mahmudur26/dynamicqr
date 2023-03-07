@@ -112,9 +112,9 @@ class QrDbController extends Controller
             ->orderBy('id' , 'DESC')
             ->get();
         $today_temp = Carbon::now()->format('d/m/Y');
-        $fromDay_temp = Carbon::now()->subDays(5)->format('d/m/Y');
+        $fromDay_temp = Carbon::now()->subDays(7)->format('d/m/Y');
         $today = Carbon::createFromFormat('d/m/Y', $today_temp);
-        $fromDay = Carbon::createFromFormat('d/m/Y', $fromDay_temp);;
+        $fromDay = Carbon::createFromFormat('d/m/Y', $fromDay_temp);
         
         $scanData = DB::table('q_r_hits')
                             ->select(DB::raw('DATE(created_at) as date, COUNT(*) as view'))

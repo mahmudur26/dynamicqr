@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\QRCode;
+use App\Models\QRHit;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
@@ -146,5 +150,62 @@ class AdminController extends Controller
             session()->flash('message', 'Invalid User.');
             return redirect()->back();
         }
+    }
+
+    public function site_statistics()
+    {
+        $data['active_user'] = User::where('is_active' , '1')->where('is_verified' , '1')->count();
+        $data['pending_user'] = User::where('is_active' , '1')->where('is_verified' , NULL)->count();
+        $data['siteHit_today'] = DB::table('site_visitor')
+                                ->select('id')
+                                ->whereDate('created_at' , Carbon::now())
+                                ->count();
+        $data['siteHit_lastOneWeek'] = DB::table('site_visitor')
+                                    ->select('id')
+                                    ->whereDate('created_at' , '<=' , Carbon::now())
+                                    ->whereDate('created_at' , '>=' , Carbon::now()->subDays(7))
+                                    ->count();
+        $data['siteHit_lastOneMonth'] = DB::table('site_visitor')
+                                    ->select('id')
+                                    ->whereDate('created_at' , '<=' , Carbon::now())
+                                    ->whereDate('created_at' , '>=' , Carbon::now()->subDays(30))
+                                    ->count();
+        $data['totalGeneratedQR'] = QRCode::count();
+        $data['totalQRHit'] = QRHit::count();
+        $data['totalQRHitOneMonth'] = QRHit::whereDate('created_at' , '<=' , Carbon::now())
+                                    ->whereDate('created_at' , '>=' , Carbon::now()->subDays(30))
+                                    ->count();
+
+        $today_temp = Carbon::now()->format('d/m/Y');
+        $fromDay_temp = Carbon::now()->subDays(7)->format('d/m/Y');
+        $today = Carbon::createFromFormat('d/m/Y', $today_temp);
+        $fromDay = Carbon::createFromFormat('d/m/Y', $fromDay_temp);
+        $siteHitData = DB::table('site_visitor')
+                        ->select(DB::raw('DATE(created_at) as date, COUNT(*) as hit'))
+                        ->whereBetween('created_at' , [$fromDay , $today])
+                        ->groupBy('date')
+                        ->get(); 
+        $hit = [];
+        foreach($siteHitData as $key => $res){
+            $hit[] = $res->hit;
+        }
+        $data['hit'] = json_encode(array_reverse($hit));
+
+        $qrHitData = DB::table('q_r_hits')
+                        ->select(DB::raw('DATE(created_at) as date, COUNT(*) as hit'))
+                        ->whereBetween('created_at' , [$fromDay , $today])
+                        ->groupBy('date')
+                        ->get(); 
+        $qrhit = [];
+        foreach($qrHitData as $key => $res){
+            $qrhit[] = $res->hit;
+        }
+        $data['qrhit'] = json_encode(array_reverse($qrhit));
+
+        // dd($data['hit']);
+        
+        // dd($data['totalGeneratedQR']);
+        $data['title'] = 'Site Statistics';
+        return view("admin.site-statistics" , $data);
     }
 }
