@@ -1,6 +1,18 @@
 @extends('landing.homeFrame')
 @section('content')
-
+<style>
+.service-content p{
+    text-align: justify;
+}
+.service-content h2{
+    font-size: 20px;
+    text-align: center;
+}
+.service-content img{
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
 <!-- hero area start -->
 <div class="hero-area slider-custom" id="slider-area">
     <div class="slider">
@@ -8,7 +20,7 @@
             <div class="row">
                 <div class="offset-md-5 col-md-8">
                     <div class="hero-text mr-ri-l">
-                        <h1 style="color: black;">Create Your Dynamic QR Code</h1>
+                        <h1 style="color: black;">Create Your Dynamic QR Code With Logo</h1>
                         <p style="color: black;">Reusable, Design Customisable, Live Statistics and trackable.</p>
                     </div>
                 </div>
@@ -21,36 +33,39 @@
 <section class="service-area gray-bg">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-3 col-md-3">
                 <div class="single-service">
-                    <div class="service-icon">
+                    <div class="service-content">
                         <img src="{{asset('homepageRecources/img/icon/service-icon-1.png')}}" alt="">
-                    </div>
-                    <div class="service-content">
-                        <h2>Fully Dynamic</h2>
-                        <p>Generate, Print, and Forget! After generating once you can change your link anytime.</p>
+                        <h2>Set QR Content</h2>
+                        <p>Select a content type at the top for your QR code (URL, Text, Email...). After selecting your type you will see all available options. Enter all fields that should appear when scanning your QR code. Make sure everything you enter is correct because you can’t change the content once your QR code is printed.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-3 col-md-3">
                 <div class="single-service">
-                    <div class="service-icon">
+                    <div class="service-content">
                         <img src="{{asset('homepageRecources/img/icon/service-icon-2.png')}}" alt="">
-                    </div>
-                    <div class="service-content">
-                        <h2>Awesome Design</h2>
-                        <p>Style, Color, Logo all are in your hand. Generate your creative QR now.</p>
+                        <h2>Customize Design</h2>
+                        <p>You want your QR code to look unique? Set a custom color and replace the standard shapes of your QR code. The corner elements and the body can be customized individually. Add a logo to your QR code. Select it from the gallery or upload your own logo image. You can also start with one of the templates from the template gallery.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-3 col-md-3">
                 <div class="single-service">
-                    <div class="service-icon">
-                        <img width="53px" src="{{asset('homepageRecources/img/icon/favicon.png')}}" alt="">
-                    </div>
                     <div class="service-content">
-                        <h2>Track Your Statistics</h2>
-                        <p>You can track easily your QR scanning statictics. </p>
+                        <img width="53px" src="{{asset('homepageRecources/img/icon/favicon.png')}}" alt="">
+                        <h2>Generate QR Code</h2>
+                        <p>Set the pixel resolution of your QR code with the slider. Click the "Create QR Code"-button to see your qr code preview. Please make sure your QR code is working correctly by scanning the preview with your QR Code scanner. Use a high resolution setting if you want to get a png code with print quality.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="single-service">
+                    <div class="service-content">
+                        <img width="53px" src="{{asset('homepageRecources/img/icon/color-wheel-icon-2.jpg')}}" alt="">
+                        <h2>Download Image</h2>
+                        <p>Now you can download the image files for your QR code as .png or .svg, .pdf, .eps vector graphic. If you want a vector format with the complete design please choose .svg. SVG is working in software like Adobe Illustrator or Inkscape. The logo and design settings currently only work for .png and .svg files.</p>
                     </div>
                 </div>
             </div>
