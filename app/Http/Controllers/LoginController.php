@@ -44,6 +44,11 @@ class LoginController extends Controller
                                 session()->flash('message', 'Your profile verification is on processinng. Please Wait.');
                                 return redirect()->back();
                             }
+                        if($verification->is_deactive != NULL)
+                            {
+                                session()->flash('message', 'Your profile is deactivated. Contact with the Site Administrator.');
+                                return redirect()->back();
+                            }
                         if($verification->is_admin == NULL)
                             { //IF ADMIN FALSE, NORMAL USER
                                 $request->session()->put('login_id' , $verification->id);
