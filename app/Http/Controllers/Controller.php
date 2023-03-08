@@ -22,8 +22,31 @@ class Controller extends BaseController
                 'user_ip' => $request->ip(),
                 'created_at' => now(),
             ]);
-        return view('landing.homeFrame');
+        $data['title'] = "Dynamic QR Code | Global Technologies Ltd";
+        return view('landing.home')->with($data);
     }
+
+    public function login_page()
+    {
+        $data['title'] = "Login to Generate QR";
+        return view('landing.loginPage')->with($data);
+    }
+
+    public function register_page()
+    {
+        $data['title'] = "New User? Register Then";
+        return view('landing.registrationForm')->with($data);
+    }
+
+    public function search_email()
+    {
+        $data['title'] = "Search Your Email First to Set a New One";
+        return view('landing.reset-password.searchEmail')->with($data);
+    }
+
+
+
+
 
     // public function send_mail()
     // {

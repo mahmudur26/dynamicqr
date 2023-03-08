@@ -22,13 +22,17 @@ class AdminController extends Controller
         {
             $pageRecordStart = ($data['page'] - 1)*$perPageRecord;
         }
-        $totalRecord = User::where('is_verified' , '=' , 1)
-                            ->where('is_active' , '=' , 1)    
+        $totalRecord = User::where('is_verified' , '=' , NULL)
+                            ->where('is_active' , '=' , 1) 
+                            ->where('is_admin' , '=' , NULL) 
+                            ->where('is_deactive' , '=' , NULL)    
                             ->get();
         $data['totalPageCount'] = (int)ceil(sizeof($totalRecord) / $perPageRecord);
 
         $data['users'] = User::where('is_verified' , '=' , NULL)
                                 ->where('is_active' , '=' , 1) 
+                                ->where('is_admin' , '=' , NULL) 
+                                ->where('is_deactive' , '=' , NULL) 
                                 ->limit($perPageRecord)
                                 ->offset($pageRecordStart)    
                                 ->get();
@@ -61,12 +65,16 @@ class AdminController extends Controller
             $pageRecordStart = ($data['page'] - 1)*$perPageRecord;
         }
         $totalRecord = User::where('is_verified' , '=' , 1)
-                            ->where('is_active' , '=' , 1)    
+                            ->where('is_active' , '=' , 1) 
+                            ->where('is_deactive' , '=' , NULL) 
+                            ->where('is_admin' , '=' , NULL)    
                             ->get();
         $data['totalPageCount'] = (int)ceil(sizeof($totalRecord) / $perPageRecord);
         
         $data['users'] = User::where('is_verified' , '=' , 1)
                             ->where('is_active' , '=' , 1) 
+                            ->where('is_deactive' , '=' , NULL) 
+                            ->where('is_admin' , '=' , NULL) 
                             ->limit($perPageRecord)
                             ->offset($pageRecordStart)   
                             ->get();
@@ -136,20 +144,69 @@ class AdminController extends Controller
         return view("admin.user-detail" , $data);
     }
 
-    public function suspend_user($id)
+    public function deactivate_user($id)
     {
         $user = User::where('id' , $id)->first();
         if($user)
         {
-            // dd('ok');
-            User::where('id' , $id)->delete();
-            return redirect('active-users')->with('message' , 'The User has been removed.');
+            $temp_data = [
+                'is_deactive' => 1,
+                'deactivated_at' => Carbon::now(),
+            ];
+            User::where('id' , $id)->update($temp_data);
+            return redirect('active-users')->with('message' , 'The User has been deactivated.');
         }
         else
         {
             session()->flash('message', 'Invalid User.');
             return redirect()->back();
         }
+    }
+
+    public function reactivate_user($id)
+    {
+        $user = User::where('id' , $id)->first();
+        if($user)
+        {
+            $temp_data = [
+                'is_deactive' => NULL,
+                'deactivated_at' => Carbon::now(),
+            ];
+            User::where('id' , $id)->update($temp_data);
+            return redirect('active-users')->with('message' , 'The User has been re-activated.');
+        }
+        else
+        {
+            session()->flash('message', 'Invalid User.');
+            return redirect()->back();
+        }
+    }
+
+    public function deactive_user_list()
+    {
+        $perPageRecord = 10;
+        $pageRecordStart = 0;
+        request('page') == null ? $data['page'] = 1 : $data['page'] = request('page'); 
+        if(request('page'))
+        {
+            $pageRecordStart = ($data['page'] - 1)*$perPageRecord;
+        }
+        $totalRecord = User::where('is_verified' , '=' , 1)
+                            ->where('is_active' , '=' , 1) 
+                            ->where('is_deactive' , '=' , 1) 
+                            ->where('is_admin' , '=' , NULL)    
+                            ->get();
+        $data['totalPageCount'] = (int)ceil(sizeof($totalRecord) / $perPageRecord);
+        
+        $data['users'] = User::where('is_verified' , '=' , 1)
+                            ->where('is_active' , '=' , 1) 
+                            ->where('is_deactive' , '=' , 1) 
+                            ->where('is_admin' , '=' , NULL) 
+                            ->limit($perPageRecord)
+                            ->offset($pageRecordStart)   
+                            ->get();
+        $data['title'] = 'Active Users';
+        return view("admin.deactive-users" , $data);
     }
 
     public function site_statistics()

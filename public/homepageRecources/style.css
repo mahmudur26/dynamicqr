@@ -133,7 +133,7 @@ header {
 
 /* ============= 3. SLIDER AREA ============= */
 .hero-area {
-  background-image: url(img/slider/1.png);
+  background-image: url(img/slider/top.png);
   background-size: cover;
   background-position: center center;
   height: 100vh;
@@ -687,7 +687,7 @@ color:#fff;
 margin:0;
 }
 .conct-border {
-  border-bottom: 1px solid rgba(250, 87, 101, 0.9);
+  /* border-bottom: 1px solid rgba(250, 87, 101, 0.9); */
   overflow: hidden;
 }
 .conct-border.two {

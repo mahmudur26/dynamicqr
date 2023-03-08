@@ -22,19 +22,24 @@ Route::get('/admin-profile' , [AdminController::class , 'profile'])->name('admin
 Route::post('/admin-profile_update' , [AdminController::class , 'update_profile'])->name('admin_update_profile_information')->middleware('isLogged');
 Route::post('/admin_update_password' , [AdminController::class , 'update_password'])->name('admin_update_password')->middleware('isLogged');
 Route::get('/user-detail/{id}' , [AdminController::class , 'user_detail'])->middleware('isLogged');
-Route::get('/suspend-user/{id}' , [AdminController::class , 'suspend_user'])->middleware('isLogged');
+Route::get('/deactive-user' , [AdminController::class , 'deactive_user_list'])->middleware('isLogged');
+Route::get('/deactivate-user/{id}' , [AdminController::class , 'deactivate_user'])->middleware('isLogged');
+Route::get('/reactivate-user/{id}' , [AdminController::class , 'reactivate_user'])->middleware('isLogged');
 Route::get('/site-statistics' , [AdminController::class , 'site_statistics'])->middleware('isLogged');
 
 Route::get('/' , [Controller::class, 'home_page'])->name('home-page');
 
-Route::get('/login' , [LoginController::class, 'login'])->name('login')->middleware('isAlreadyLogged');
+Route::get('/login' , [Controller::class, 'login_page'])->name('login')->middleware('isAlreadyLogged');
+// Route::get('/login' , [LoginController::class, 'login'])->name('login')->middleware('isAlreadyLogged');
 Route::post('/login-user' , [LoginController::class, 'login_user'])->name('login-user');
 
-Route::get('/register' , [RegisterController::class, 'register'])->name('register')->middleware('isAlreadyLogged');
+Route::get('/register' , [Controller::class, 'register_page'])->name('register')->middleware('isAlreadyLogged');
+// Route::get('/register' , [RegisterController::class, 'register'])->name('register')->middleware('isAlreadyLogged');
 Route::post('/register-user' , [RegisterController::class, 'register_user'])->name('register-user');
 Route::get('/verify-user/{id}/{token}' , [RegisterController::class, 'verify_user'])->name('verify-user');
 
-Route::get('/reset-password' , [ResetPassword::class, 'search_email'])->name('reset-password');
+Route::get('/reset-password' , [Controller::class, 'search_email'])->name('reset-password');
+// Route::get('/reset-password' , [ResetPassword::class, 'search_email'])->name('reset-password');
 Route::post('/reset-password' , [ResetPassword::class, 'send_resetPass_email'])->name('find-password-to-reset');
 Route::get('/reset/{email}' , [ResetPassword::class, 'reset_password'])->name('pass-reset-form');
 Route::post('/set-password' , [ResetPassword::class, 'set_new_password'])->name('set-new-password');

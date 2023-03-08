@@ -48,17 +48,37 @@ td{
             <td>{{$user->registered_on}}</td>
         </tr>
         <tr>
-            <td>Account Active by Admin</td>
+            <td>Account Status</td>
             <td>
                 <?php
-                echo $user->is_verified == 1 ? 'Verified' : 'User Not Verified';
+                if($user->is_deactive == 1)
+                    echo "Deactive. (Deactivated On: $user->deactivated_at)";
+                else
+                    echo "Active";
                 ?>
             </td>
         </tr>
+        
     </tbody>
     </table>
-    <div class="center">
-        <a href="{{url('/suspend-user/'.$user->id)}}"><button type="button" class="btn btn-danger">Suspend This User</button></a>
+    <?php 
+    if($user->is_deactive == 1)
+    {
+        $activeButton = '';
+        $deactiveButton = 'none';
+    }
+    else if($user->is_deactive == NULL)
+    {
+        $activeButton = 'none';
+        $deactiveButton = '';
+    }else{}
+    ?>
+    <div class="center" style="display: {{$deactiveButton}};">
+        <a href="{{url('/deactivate-user/'.$user->id)}}"><button type="button" class="btn btn-danger">Deactivate This User</button></a>
+    </div>
+
+    <div class="center" style="display: {{$activeButton}};">
+        <a href="{{url('/reactivate-user/'.$user->id)}}"><button type="button" class="btn btn-success">Reactivate This User</button></a>
     </div>
     </div>
 

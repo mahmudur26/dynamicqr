@@ -59,8 +59,10 @@ class ResetPassword extends Controller
     public function reset_password()
     {
         $data['title'] = 'Set New Password | Reset Password';
-        $data['view_page'] = 'landing.reset-password.set-password';
-        return view('landing/frame' , $data);
+        // $data['view_page'] = 'landing.reset-password.set-password';
+        // return view('landing/frame' , $data);
+
+        return view('landing.reset-password.setPassword')->with($data);
     }
 
     public function set_new_password(Request $request)

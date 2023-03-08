@@ -518,7 +518,11 @@ textarea:focus {
 .bg-6 {background: rgba(0, 0, 0, 0) url("../../img/bg/6.png") repeat scroll center center / cover ;}
 .bg-7 {background: rgba(0, 0, 0, 0) url("../../img/bg/7.png") repeat scroll center center / cover ;}
 
+.bg-bottom {background: rgba(0, 0, 0, 0) url("../../img/bg/bottom.png") repeat scroll center center / cover ;}
+
 /*** Slide Background ***/
+.slider-custom {background: rgba(0, 0, 0, 0) url("../../img/slider/top.png") repeat scroll center center / cover ;}
+
 .slider-1 {background: rgba(0, 0, 0, 0) url("../../img/slider/1.png") repeat scroll center center / cover ;}
 .slider-2 {background: rgba(0, 0, 0, 0) url("../../img/slider/7.png") repeat scroll center center / cover!important ;}
 .slider-3 {background: rgba(0, 0, 0, 0) url("../../img/slider/8.png") repeat scroll center center / cover!important ;}
