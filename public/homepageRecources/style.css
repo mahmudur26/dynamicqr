@@ -854,3 +854,6 @@ margin:0;
 }
 #scrollUp:hover{background:#3e3e3e;}
 
+.media-body p, .media-left i{
+  color: black;
+}

@@ -38,7 +38,7 @@
                     <div class="service-content">
                         <img src="{{asset('homepageRecources/img/icon/service-icon-1.png')}}" alt="">
                         <h2>Set QR Content</h2>
-                        <p>Select a content type at the top for your QR code (URL, Text, Email...). After selecting your type you will see all available options. Enter all fields that should appear when scanning your QR code. Make sure everything you enter is correct because you can’t change the content once your QR code is printed.</p>
+                        <p>Go to Generate New menu. Select a content type for your QR code (URL, Text, File - PDF, Video, Audio etc). Complete fields for the selected content type.</p>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                     <div class="service-content">
                         <img src="{{asset('homepageRecources/img/icon/service-icon-2.png')}}" alt="">
                         <h2>Customize Design</h2>
-                        <p>You want your QR code to look unique? Set a custom color and replace the standard shapes of your QR code. The corner elements and the body can be customized individually. Add a logo to your QR code. Select it from the gallery or upload your own logo image. You can also start with one of the templates from the template gallery.</p>
+                        <p>You want your QR code to look unique?  Add a logo to your QR code. Set a custom color and replace the standard shapes of your QR code. The corner elements and the body can be customized individually by choosing dot and eye colour/style.</p>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     <div class="service-content">
                         <img width="53px" src="{{asset('homepageRecources/img/icon/favicon.png')}}" alt="">
                         <h2>Generate QR Code</h2>
-                        <p>Set the pixel resolution of your QR code with the slider. Click the "Create QR Code"-button to see your qr code preview. Please make sure your QR code is working correctly by scanning the preview with your QR Code scanner. Use a high resolution setting if you want to get a png code with print quality.</p>
+                        <p>Click Generate button below the QR Code. Set the pixel resolution of your QR code with the slider. Please make sure your QR code is working correctly by scanning the generated QR Code with your phone camera.</p>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                     <div class="service-content">
                         <img width="53px" src="{{asset('homepageRecources/img/icon/color-wheel-icon-2.jpg')}}" alt="">
                         <h2>Download Image</h2>
-                        <p>Now you can download the image files for your QR code as .png or .svg, .pdf, .eps vector graphic. If you want a vector format with the complete design please choose .svg. SVG is working in software like Adobe Illustrator or Inkscape. The logo and design settings currently only work for .png and .svg files.</p>
+                        <p>Click Download button to download and save the generated QR Code. You can go to My QR Codes menu to edit, view or see statistics of the new QR Code.</p>
                     </div>
                 </div>
             </div>
