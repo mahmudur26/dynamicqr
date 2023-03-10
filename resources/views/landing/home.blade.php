@@ -33,11 +33,12 @@
 <section class="service-area gray-bg">
     <div class="container">
         <div class="row">
+            <h2 class="text-center service-area-headline">How To Create Dynamic QR Code With Logo</h2>
             <div class="col-lg-3 col-md-3">
                 <div class="single-service">
                     <div class="service-content">
-                        <img src="{{asset('homepageRecources/img/icon/service-icon-1.png')}}" alt="">
-                        <h2>Set QR Content</h2>
+                        <!-- <img src="{{asset('homepageRecources/img/icon/service-icon-1.png')}}" alt=""> -->
+                        <h2><span class="homeSubHeadingNum">1</span> Set QR Content</h2>
                         <p>Go to Generate New menu. Select a content type for your QR code (URL, Text, File - PDF, Video, Audio etc). Complete fields for the selected content type.</p>
                     </div>
                 </div>
@@ -45,8 +46,8 @@
             <div class="col-lg-3 col-md-3">
                 <div class="single-service">
                     <div class="service-content">
-                        <img src="{{asset('homepageRecources/img/icon/service-icon-2.png')}}" alt="">
-                        <h2>Customize Design</h2>
+                        <!-- <img src="{{asset('homepageRecources/img/icon/service-icon-2.png')}}" alt=""> -->
+                        <h2><span class="homeSubHeadingNum">2</span> Customize Design</h2>
                         <p>You want your QR code to look unique?  Add a logo to your QR code. Set a custom color and replace the standard shapes of your QR code. The corner elements and the body can be customized individually by choosing dot and eye colour/style.</p>
                     </div>
                 </div>
@@ -54,8 +55,8 @@
             <div class="col-lg-3 col-md-3">
                 <div class="single-service">
                     <div class="service-content">
-                        <img width="53px" src="{{asset('homepageRecources/img/icon/favicon.png')}}" alt="">
-                        <h2>Generate QR Code</h2>
+                        <!-- <img width="53px" src="{{asset('homepageRecources/img/icon/favicon.png')}}" alt=""> -->
+                        <h2><span class="homeSubHeadingNum">3</span> Generate QR Code</h2>
                         <p>Click Generate button below the QR Code. Set the pixel resolution of your QR code with the slider. Please make sure your QR code is working correctly by scanning the generated QR Code with your phone camera.</p>
                     </div>
                 </div>
@@ -63,8 +64,8 @@
             <div class="col-lg-3 col-md-3">
                 <div class="single-service">
                     <div class="service-content">
-                        <img width="53px" src="{{asset('homepageRecources/img/icon/color-wheel-icon-2.jpg')}}" alt="">
-                        <h2>Download Image</h2>
+                        <!-- <img width="53px" src="{{asset('homepageRecources/img/icon/color-wheel-icon-2.jpg')}}" alt=""> -->
+                        <h2><span class="homeSubHeadingNum">4</span> Download QR Code</h2>
                         <p>Click Download button to download and save the generated QR Code. You can go to My QR Codes menu to edit, view or see statistics of the new QR Code.</p>
                     </div>
                 </div>
@@ -98,7 +99,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="section-heading pb-85 text-center">
+                <div class="section-heading pb-50 text-center">
                     <h2>QR Code Applications & <br> Use Cases</h2>
                     <p>Most customers today use smartphones, so they have the ability to easily scan your QR code and connect directly with your business. Find out the best ways to use QR codes to enhance your business, depending on what industry you’re in and how you’d like to serve your users. Use our QR code generator and start enjoying all the benefits it offers.</p>
                 </div>

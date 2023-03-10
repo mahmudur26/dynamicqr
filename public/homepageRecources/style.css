@@ -239,9 +239,22 @@ header {
 /* ============= 4. SERVICE AREA ============= */
 .service-area {}
 .single-service {
-  padding: 110px 25px 105px;
+  padding: 40px 10px;
   -webkit-transition: .3s;
   transition: .3s;
+}
+.service-area-headline{
+  margin-top: 60px;
+}
+.homeSubHeadingNum{
+  border-radius: 50%;
+  width: 36px;
+  height: 26px;
+  padding: 4px 12px;
+
+  background: rgb(0, 117, 0);
+  color: white;
+  text-align: center;
 }
 .single-service h2 {
   font-size: 24px;
@@ -675,10 +688,9 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#5DA92F", en
   color: #fff;
   display: block;
   font-size: 36px;
-  line-height: 50px;
 }
 .single-address .media-left {
-  left: 65px;
+  left: 75px;
   padding: 0;
   position: absolute;
 }

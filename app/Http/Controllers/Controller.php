@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 use App\Mail\VerificationMail;
-use Exception;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -16,11 +17,16 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    function __construct()
+    {
+        
+    }
+
     public function home_page(Request $request)
     {
         DB::table('site_visitor')->insert([
                 'user_ip' => $request->ip(),
-                'created_at' => now(),
+                'created_at' => Carbon::now(),
             ]);
         $data['title'] = "Dynamic QR Code | Global Technologies Ltd";
         return view('landing.home')->with($data);

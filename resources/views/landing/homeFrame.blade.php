@@ -46,7 +46,7 @@
 						<ul class="nav nav-pills navbar-nav navbar-right">
 							<li class="nav-item"><a class="nav-link" aria-current="page" href="{{route('home-page')}}">Home</a></li>
 							<li class="nav-item"><a class="nav-link" href="#">About</a></li>
-							<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+							<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
 							<li class="nav-item"><a class="nav-link download-btn" href="{{route('login')}}">Login/Register</a></li>
 						</ul>
 					</div>
@@ -60,6 +60,7 @@
 
 
 		<!-- Copyright Area Start -->
+	<div id="contact">
 		<div class="copyright-area bg-bottom ptb-70">
 			<div class="container">
 				<!-- Contact address left -->
@@ -134,6 +135,7 @@
 				<!-- Copyright right -->
 			</div>
 		</div>
+	</div>
 		<!-- Copyright Area End -->
 		
 		<!-- all js here -->
