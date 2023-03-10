@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {
+        date_default_timezone_set('Africa/Nairobi');
+    }
+    
     public function login()
     {
         $data['title'] = 'Login Page';

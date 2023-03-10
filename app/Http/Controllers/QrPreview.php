@@ -9,6 +9,11 @@ use Illuminate\Support\Carbon;
 
 class QrPreview extends Controller
 {
+    public function __construct()
+    {
+        date_default_timezone_set('Africa/Nairobi');
+    }
+    
     public function qr_preview($code, Request $request)
     {
         $qr = QRCode::where('random_code' , $code)->first();

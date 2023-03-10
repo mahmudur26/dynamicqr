@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
+    public function __construct()
+    {
+        date_default_timezone_set('Africa/Nairobi');
+    }
+    
     public function register()
     {
         $data['title'] = 'Registration Page';

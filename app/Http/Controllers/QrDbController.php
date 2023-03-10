@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\DB;
 
 class QrDbController extends Controller
 {
+    public function __construct()
+    {
+        date_default_timezone_set('Africa/Nairobi');
+    }
+    
     public function index()
     {
         $qr = QRCode::all();

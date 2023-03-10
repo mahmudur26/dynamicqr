@@ -17,10 +17,12 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    function __construct()
+    
+    public function __construct()
     {
-        
+        date_default_timezone_set('Africa/Nairobi');
     }
+    
 
     public function home_page(Request $request)
     {
