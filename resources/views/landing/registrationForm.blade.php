@@ -30,12 +30,6 @@
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.register-btn{
-    background-color: forestgreen;
-}
-.register-btn:hover{
-    background-color: rgb(0, 102, 0);
-}
 </style>
 <div id="contact" class="contact-area pt-130">
     <div class="container">
@@ -65,13 +59,13 @@
                             <div class="row">
                                 <div class="col-md-6 mt-4">
                                     <div class="actions text-center">
-                                        <button type="submit" class="btn btn-lg btn-contact-bg" title="Register!">Register</button>
+                                        <button type="submit" class="btn btn-lg btn-contact-bg green-btn" title="Register!">Register</button>
                                         <p class="form-messege"></p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mt-4">
                                     <div class="text-center">
-                                        <a class="btn btn-lg btn-contact-bg register-btn" title="Already have an account? Login then..." href="{{route('login')}}">Login</a>
+                                        <a class="btn btn-lg btn-contact-bg green-btn" title="Already have an account? Login then..." href="{{route('login')}}">Login</a>
                                         <p class="form-messege"></p>
                                     </div>
                             </div>

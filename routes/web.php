@@ -26,6 +26,7 @@ Route::get('/deactive-user' , [AdminController::class , 'deactive_user_list'])->
 Route::get('/deactivate-user/{id}' , [AdminController::class , 'deactivate_user'])->middleware('isLogged');
 Route::get('/reactivate-user/{id}' , [AdminController::class , 'reactivate_user'])->middleware('isLogged');
 Route::get('/site-statistics' , [AdminController::class , 'site_statistics'])->middleware('isLogged');
+Route::get('/qr-statistics' , [AdminController::class , 'qr_statistics'])->middleware('isLogged');
 
 Route::get('/' , [Controller::class, 'home_page'])->name('home-page');
 

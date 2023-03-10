@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\QRCode;
 use App\Models\QRHit;
+use App\Models\QRCode;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class QrPreview extends Controller
 {
@@ -14,6 +15,7 @@ class QrPreview extends Controller
         QRHit::create([
             'qr_id' => $qr->id,
             'user_ip' => $request->ip(), 
+            'created_at' => Carbon::now(),
         ]);       
 
         return redirect()->away('http://'.$qr->input_text);

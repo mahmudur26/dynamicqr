@@ -114,6 +114,9 @@
 										<a href="#"><i class="icofont icofont-social-facebook"></i></a>
 									</li>
 									<li>
+										<a href="https://wa.me/+254799904374" target="_blank"><i class="icofont icofont-social-whatsapp"></i></a>
+									</li>
+									<li>
 										<a href="#"><i class="icofont icofont-social-twitter"></i></a>
 									</li>
 									<li>

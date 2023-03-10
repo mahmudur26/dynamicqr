@@ -17,7 +17,8 @@
         <a class="py-2 d-none d-md-inline-block" href="{{url('/pending-users')}}">Pending Users</a>
         <a class="py-2 d-none d-md-inline-block" href="{{url('/active-users')}}">Active Users</a>
         <a class="py-2 d-none d-md-inline-block" href="{{url('/deactive-user')}}">Deactive Users</a>
-        <a class="py-2 d-none d-md-inline-block" href="{{url('/site-statistics')}}">Site Status</a>
+        <a class="py-2 d-none d-md-inline-block" href="{{url('/qr-statistics')}}">QR Statistics</a>
+        <a class="py-2 d-none d-md-inline-block" href="{{url('/site-statistics')}}">Site Statistics</a>
         <a class="py-2 d-none d-md-inline-block" href="{{route('admin_profile')}}">Profile</a>
         <a class="py-2 d-none d-md-inline-block" href="{{route('logout')}}">Logout</a>
     </nav>

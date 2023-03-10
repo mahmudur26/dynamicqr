@@ -265,4 +265,36 @@ class AdminController extends Controller
         $data['title'] = 'Site Statistics';
         return view("admin.site-statistics" , $data);
     }
+
+    public function qr_statistics()
+    {
+        $data['today_qrhit'] = QRHit::whereDate('created_at' , '=' , Carbon::now())->count();
+        
+        $data['lastSeven_qrhit'] = QRHit::whereDate('created_at' , '<=' , Carbon::now())
+                                ->whereDate('created_at' , '>=' , Carbon::now()->subDays(7))
+                                ->count();
+
+        $data['lastMonth_qrhit'] = QRHit::whereDate('created_at' , '<=' , Carbon::now())
+                                ->whereDate('created_at' , '>=' , Carbon::now()->subDays(30))
+                                ->count();
+
+        $tempCount = 0;
+        $day = [];
+        $hit = [];
+        while($tempCount < 7)
+        {
+            $day[] = Carbon::now()->subDays($tempCount)->format('d/m/Y');
+            $dayTemp = Carbon::createFromFormat('d/m/Y', $day[$tempCount]);
+            $hit[] = DB::table('q_r_hits')
+                    ->whereDate('created_at', '=' , $dayTemp)
+                    ->count();
+            $tempCount++;
+        }
+        // dd($hit);
+        $data['day'] = json_encode($day);
+        $data['hit'] = json_encode($hit);
+
+        $data['title'] = 'QR Statistics';
+        return view("admin.qr-statistics" , $data);
+    }
 }

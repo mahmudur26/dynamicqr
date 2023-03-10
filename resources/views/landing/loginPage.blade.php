@@ -31,10 +31,13 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .register-btn{
-    background-color: forestgreen;
     width: 350px;
 }
-.register-btn:hover{
+
+.green-btn{
+    background-color: forestgreen;
+}
+.green-btn:hover{
     background-color: rgb(0, 102, 0);
 }
 .reset-button{
@@ -52,7 +55,7 @@
                         <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
                         @endif
                         @csrf
-                        <p class="table_caption">Login Form</p>
+                        <p class="table_caption">Please Login or Register</p>
                         <div class="row">
                             <div class="form-group col-12 mt-4">
                                 <input type="email" name="login_email" class="form-control" id="email" placeholder="Email" required="required">
@@ -63,19 +66,19 @@
                             <div class="row">
                                 <div class="col-md-6 mt-4">
                                     <div class="actions text-center">
-                                        <button type="submit" name="submit" class="btn btn-lg btn-contact-bg" title="Login to your account!">Login</button>
+                                        <button type="submit" name="submit" class="btn btn-lg btn-contact-bg green-btn" title="Login to your account!">Login</button>
                                         <p class="form-messege"></p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mt-4">
                                     <div class="text-center">
-                                        <a class="btn btn-lg btn-contact-bg reset-button" title="Register to generate QR!" href="{{route('reset-password')}}">Reset Password</a>
+                                        <a class="btn btn-lg btn-contact-bg reset-button green-btn" title="Register to generate QR!" href="{{route('reset-password')}}">Reset Password</a>
                                         <p class="form-messege"></p>
                                     </div>
                                 </div>
                                 <div class="col-md-12 mt-4">
                                     <div class="text-center">
-                                        <a class="btn btn-lg btn-contact-bg register-btn" title="Register to generate QR!" href="{{route('register')}}">Register</a>
+                                        <a class="btn btn-lg btn-contact-bg register-btn green-btn" title="Register to generate QR!" href="{{route('register')}}">Register</a>
                                         <p class="form-messege"></p>
                                     </div>
                                 </div>

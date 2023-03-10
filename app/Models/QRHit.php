@@ -10,6 +10,7 @@ class QRHit extends Model
     use HasFactory;
     protected $fillable = [
         'qr_id',
-        'user_ip'
+        'user_ip',
+        'qr_hit_on'
     ];
 }

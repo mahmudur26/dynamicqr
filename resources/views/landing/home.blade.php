@@ -12,6 +12,10 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.section-heading{
+    width: 58% !important;
+}
 </style>
 <!-- hero area start -->
 <div class="hero-area slider-custom" id="slider-area">
@@ -39,7 +43,7 @@
                     <div class="service-content">
                         <!-- <img src="{{asset('homepageRecources/img/icon/service-icon-1.png')}}" alt=""> -->
                         <h2><span class="homeSubHeadingNum">1</span> Set QR Content</h2>
-                        <p>Go to Generate New menu. Select a content type for your QR code (URL, Text, File - PDF, Video, Audio etc). Complete fields for the selected content type.</p>
+                        <p>Login or Register and login. Go to Generate New menu. Select a content type for your QR code (URL, Text, File - PDF, Video, Audio etc). Complete fields for the selected content type.</p>
                     </div>
                 </div>
             </div>
@@ -99,8 +103,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="section-heading pb-50 text-center">
-                    <h2>QR Code Applications & <br> Use Cases</h2>
+                <div class="section-heading pb-20 text-center">
+                    <h2>QR Code Applications & Use Cases</h2>
                     <p>Most customers today use smartphones, so they have the ability to easily scan your QR code and connect directly with your business. Find out the best ways to use QR codes to enhance your business, depending on what industry you’re in and how you’d like to serve your users. Use our QR code generator and start enjoying all the benefits it offers.</p>
                 </div>
             </div>
