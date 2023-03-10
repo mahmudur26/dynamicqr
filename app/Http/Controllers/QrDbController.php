@@ -109,7 +109,7 @@ class QrDbController extends Controller
         $data['qr_stat'] = DB::table('q_r_hits')
             ->select('*')
             ->where('qr_id' , $id)
-            ->orderBy('created_at' , 'asc')
+            ->orderBy('created_at' , 'desc')
             ->get();
 
         $tempCount = 0;

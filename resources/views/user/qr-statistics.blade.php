@@ -45,7 +45,7 @@ canvas{
         <tr>
             <td>{{$key+1}}</td>
             <td>{{$stat->user_ip}}</td>
-            <td>{{date('d-m-Y H:m:s A', strtotime($stat->created_at))}}</td>
+            <td>{{$stat->created_at}}</td>
         </tr>
         @endforeach
     </tbody>

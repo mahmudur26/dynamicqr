@@ -72,7 +72,7 @@
 									<i class="icofont icofont-phone"></i>
 								</div>
 								<div class="media-body text-center">
-									<p>+0799 904 374</p>
+									<p>0799 904 374</p>
 								</div>
 							</div>
 						</div>
@@ -140,7 +140,10 @@
 		</div>
 	</div>
 		<!-- Copyright Area End -->
-		
+		<a href="https://wa.me/+254799904374" class="whatsapp_float" target="_blank">
+			<img src="{{asset('homepageRecources/img/icon/wp.png')}}" alt="" />
+			<!-- <i class="fa fa-whatsapp whatsapp-my-float"></i> -->
+		</a>
 		<!-- all js here -->
         <script src="{{asset('homepageRecources/js/vendor/jquery-3.6.0.min.js')}}"></script>
         <script src="{{asset('homepageRecources/js/vendor/jquery-migrate-3.3.2.min.js')}}"></script>
