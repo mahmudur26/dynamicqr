@@ -111,28 +111,19 @@ class QrDbController extends Controller
             ->where('qr_id' , $id)
             ->orderBy('id' , 'DESC')
             ->get();
-        $today_temp = Carbon::now()->format('d/m/Y');
-        $fromDay_temp = Carbon::now()->subDays(7)->format('d/m/Y');
-        $today = Carbon::createFromFormat('d/m/Y', $today_temp);
-        $fromDay = Carbon::createFromFormat('d/m/Y', $fromDay_temp);
-        
-        $scanData = DB::table('q_r_hits')
-                            ->select(DB::raw('DATE(created_at) as date, COUNT(*) as view'))
-                            ->where('qr_id' , $id)
-                            ->whereBetween('created_at' , [$fromDay , $today])
-                            ->groupBy('date')
-                            ->get();
-        
+            
+        $tempCount = 0;
         $day = [];
         $hit = [];
-        foreach($scanData as $key => $res){
-            $hit[] = $res->view;
-        }
-        $dayTemp = 0;
-        while($dayTemp < 7)
+        while($tempCount < 7)
         {
-            $day[] = Carbon::now()->subDays($dayTemp)->format('d/m/Y');
-            $dayTemp++;
+            $day[] = Carbon::now()->subDays($tempCount)->format('d/m/Y');
+            $dayTemp = Carbon::createFromFormat('d/m/Y', $day[$tempCount]);
+            $hit[] = DB::table('q_r_hits')
+                    ->where('qr_id' , $id)
+                    ->whereDate('created_at', '=' , $dayTemp)
+                    ->count();
+            $tempCount++;
         }
         
         $data['day'] = json_encode($day);
