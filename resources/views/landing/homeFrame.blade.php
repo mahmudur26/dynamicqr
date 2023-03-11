@@ -47,7 +47,11 @@
 							<li class="nav-item"><a class="nav-link" aria-current="page" href="{{route('home-page')}}">Home</a></li>
 							<li class="nav-item"><a class="nav-link" href="#">About</a></li>
 							<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+							@if(Session()->has('login_id'))
+							<li class="nav-item"><a class="nav-link download-btn" href="{{route('dashboard')}}">Dashboard</a></li>
+							@else
 							<li class="nav-item"><a class="nav-link download-btn" href="{{route('login')}}">Login/Register</a></li>
+							@endif
 						</ul>
 					</div>
 				</div>

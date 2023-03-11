@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Exception;
 use Illuminate\Http\Request;
 use App\Mail\VerificationMail;
+use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -52,7 +53,18 @@ class Controller extends BaseController
         return view('landing.reset-password.searchEmail')->with($data);
     }
 
-
+    public function dashboard()
+    {
+        $isAdminCheck = DB::table('users')
+                        ->select('is_admin')
+                        ->where('id' , Session('login_id'))
+                        ->first();
+        // dd($isAdminCheck);
+        if($isAdminCheck->is_admin == 1)
+            return redirect('pending-users');
+        else
+            return redirect('dynamic-qr-generator');
+    }
 
 
 

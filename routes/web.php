@@ -45,6 +45,7 @@ Route::post('/reset-password' , [ResetPassword::class, 'send_resetPass_email'])-
 Route::get('/reset/{email}' , [ResetPassword::class, 'reset_password'])->name('pass-reset-form');
 Route::post('/set-password' , [ResetPassword::class, 'set_new_password'])->name('set-new-password');
 
+Route::get('/dashboard' , [Controller::class, 'dashboard'])->name('dashboard');
 Route::get('/logout' , [LoginController::class, 'logout'])->name('logout');
 
 
